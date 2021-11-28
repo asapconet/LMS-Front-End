@@ -2,6 +2,10 @@ body {
   background-color: #a5a3a3;
 }
 
+h1 {
+  font-size: xx-large;
+  font-weight: 350;
+}
 
 /*  STARTING OF NAV BAR STYLES  */
 nav {
@@ -22,6 +26,16 @@ a:hover  {
 
 
 /* END OF NAV BAR STYLES */
+
+/* STARTING OF HOME */
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
 
 @media only screen and (max:630px) {
     nav {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CourseList = () => {
+const PostCreate = () => {
     return (
         <div>
             
@@ -8,6 +8,4 @@ const CourseList = () => {
     )
 }
 
-export default CourseList
-
-
+export default PostCreate

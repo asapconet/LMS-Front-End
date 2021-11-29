@@ -1,13 +1,8 @@
-import './App.css';
-import { NavBar } from './Containers/navBar';
-import Home from './Containers/Home';
-
+import Main from "./Containers/Main";
 function App() {
   return (
-    <div>
-     <NavBar/>
-     <Home/>
-    </div>
+    
+  <Main/>
   );
 }
 

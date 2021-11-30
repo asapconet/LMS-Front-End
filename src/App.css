@@ -15,6 +15,7 @@ nav {
   height: 3.5rem;
   background-color: white;
   padding: 0 17% 0 17%;
+  width: 100%;
 }
 a {
     padding: .7rem;
@@ -36,9 +37,13 @@ a:hover  {
   color: white;
 }
 
+/* FOOTER STYLES */
+.footer {
+  bottom: 0;
+}
 
-@media only screen and (max:630px) {
-    nav {
-        width: 100%;
-    }
+@media only screen and (max: 630px) {
+  nav {
+    width: 100%;
+  }
 }

@@ -2,8 +2,16 @@ import React from "react";
 import Button1, { Button2, Button3 } from "../Components/button";
 import "./Registration.css";
 // import Input from "../Components/input";
-import { FaUser, FaMail,  FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
 
+import {
+  FaUser,
+  FaEnvelope,
+  FaLock,
+  FaTwitter,
+  FaFacebook,
+  FaInstagram,
+} from "react-icons/fa";
+// import Footer from "./Footer";
 
 
 const Registration = () => {

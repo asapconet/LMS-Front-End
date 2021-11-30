@@ -7,6 +7,11 @@ h1 {
   font-weight: 350;
 }
 
+::placeholder {
+  font-size: medium;
+  color: #a5a3a3;
+}
+
 /*  STARTING OF NAV BAR STYLES  */
 nav {
   display: flex;
@@ -17,13 +22,12 @@ nav {
   padding: 0 17% 0 17%;
 }
 a {
-    padding: .7rem;
-    height: 100%;
+  padding: 0.7rem;
+  height: 100%;
 }
-a:hover  {
-    background-color: #a5a3a3;
+a:hover {
+  background-color: #a5a3a3;
 }
-
 
 /* END OF NAV BAR STYLES */
 
@@ -36,9 +40,12 @@ a:hover  {
   color: white;
 }
 
-
-@media only screen and (max:630px) {
-    nav {
-        width: 100%;
-    }
+/* FOOTER STYLES */
+.footer {
+  bottom: 0;
+}
+@media only screen and (max: 630px) {
+  nav {
+    width: 100%;
+  }
 }

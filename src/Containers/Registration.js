@@ -10,6 +10,7 @@ import {
   FaFacebook,
   FaInstagram,
 } from "react-icons/fa";
+import Footer from "./Footer";
 
 const Registration = () => {
   const submitHandler = () => {
@@ -39,7 +40,7 @@ const Registration = () => {
 
           {/* PROFILE CREATION ENTRY FORM */}
 
-          <form className='p-5' onSubmit={submitHandler}>
+          <form className="p-5" onSubmit={submitHandler}>
             <div className=" flex items-center form-control">
               <label htmlFor=""></label>
               <FaUser />
@@ -48,10 +49,7 @@ const Registration = () => {
             <div className=" flex items-center form-control">
               <label htmlFor=""></label>
               <FaEnvelope />
-              <input
-                type="flex items-center"
-                placeholder="Your Email"
-              />
+              <input type="flex items-center" placeholder="Your Email" />
             </div>
             <div className="flex items-center form-control">
               <label htmlFor=""></label>
@@ -76,6 +74,7 @@ const Registration = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

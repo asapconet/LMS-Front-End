@@ -13,9 +13,12 @@ const Button1 = ({ children, onClick, className }) => {
 
 export default Button1;
 
-export const Button2 = ({ children, onClick, className}) => {
+export const Button2 = ({ children, onClick, className }) => {
   return (
-    <button className= {`bg-white w-80 h-10 rounded-3xl text-black text-sm font-bold ${className} `} onClick={onClick}>
+    <button
+      className={`bg-white w-80 h-10 rounded-3xl text-black text-sm font-bold ${className} `}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
@@ -24,7 +27,7 @@ export const Button2 = ({ children, onClick, className}) => {
 export const Button3 = ({ children, onClick, className }) => {
   return (
     <button
-      className= {`bg-black w-80 h-10 rounded-3xl text-white text-sm font-bold ${className}`}
+      className={`bg-black w-80 h-10 rounded-3xl text-white text-sm font-bold ${className}`}
       onClick={onClick}
     >
       {children}

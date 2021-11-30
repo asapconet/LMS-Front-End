@@ -1,4 +1,5 @@
 import React from 'react'
+import './Registration.css'
 import Footer from './Footer';
 import {
   FaUser,
@@ -14,12 +15,12 @@ const SignIn = () => {
     return null;
   };
     return (
-      <div>
+      <div className='signin-container'>
         <div className="signup-student-form">
         <div className="form-container">
           <div className=" flex justify-center p-2 form-header">
             <FaUser />
-            <h2>Student Register </h2>
+            <h2> Student Login </h2>
           </div>
 
           {/* PROFILE CREATION ENTRY FORM */}

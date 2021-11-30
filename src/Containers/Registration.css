@@ -69,6 +69,11 @@
 
 }
 
+.signin-container{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 .form-control input:hover,
 .form-control input:focus {
   outline: none;

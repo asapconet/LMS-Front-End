@@ -1,7 +1,7 @@
 import React from "react";
 import Button1, { Button2, Button3 } from "../Components/button";
 import "./Registration.css";
-// import Input from "../Components/input";
+import Footer from "./Footer";
 import {
   FaUser,
   FaEnvelope,

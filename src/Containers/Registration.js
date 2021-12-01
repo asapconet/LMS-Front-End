@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Button1, { Button2, Button3 } from "../Components/button";
 import "./Registration.css";
 import Footer from "./Footer";
@@ -13,6 +13,7 @@ import {
 
 
 const Registration = () => {
+  // const [isLogin, setIsLogin] = useState (true)
   const submitHandler = () => {
     return null;
   };
@@ -47,19 +48,19 @@ const Registration = () => {
               <input type="text" placeholder="Your Matric Number" />
             </div>
             <div className=" flex items-center form-control">
-              <label htmlFor=""></label>
+              <label htmlFor="email"></label>
               <FaEnvelope />
-              <input type="flex items-center" placeholder="Your Email" />
+              <input type="email" placeholder="Your Email" />
             </div>
             <div className="flex items-center form-control">
-              <label htmlFor=""></label>
+              <label htmlFor="pswd"></label>
               <FaLock />
-              <input type="text" placeholder="Your Password" />
+              <input type="password" placeholder="Your Password" />
             </div>
             <div className="flex items-center form-control">
-              <label htmlFor=""></label>
+              <label htmlFor="pswd"></label>
               <FaLock />
-              <input type="text" placeholder="Confirm Password" />
+              <input type="password" placeholder="Confirm Password" />
             </div>
 
             <Button3 className="my-4 text-center w-full"> SUBMIT</Button3>

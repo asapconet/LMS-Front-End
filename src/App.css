@@ -28,6 +28,11 @@ a {
 a:hover {
   background-color: #a5a3a3;
 }
+.btn1 {
+  color: white !important;
+  background-color: black;
+  border: none;
+}
 
 /* END OF NAV BAR STYLES */
 

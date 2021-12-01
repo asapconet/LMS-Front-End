@@ -57,7 +57,7 @@
   outline: none;
   color: white;
   font-size: normal;
-  font-weight: 300;
+  font-weight: 400;
   transition: all 0.4s;
 }
 
@@ -65,7 +65,7 @@
 .form-control input::placeholder {
   color: #c7c2c2;
   text-align: left;
-  font-weight: 200;
+  font-weight: 300;
 
 }
 
@@ -73,11 +73,12 @@
   display: flex;
   justify-content: center;
   align-content: center;
+  color: white;
 }
 .form-control input:hover,
 .form-control input:focus {
   outline: none;
   color: black;
-  font-size: 1.2em;
+  font-size: 1rem;
   font-weight: 300;
 }

@@ -33,6 +33,10 @@ a:hover {
   background-color: black;
   border: none;
 }
+.btn1:hover {
+  background-color: #e6d8d8;
+  color:black !important;
+}
 
 /* END OF NAV BAR STYLES */
 

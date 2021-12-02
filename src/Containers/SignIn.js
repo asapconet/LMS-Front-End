@@ -48,9 +48,10 @@ const SignIn = () => {
                 <FaTwitter className="mx-2" />
                 <FaFacebook className="mx-2" />
               </span>
-              <Button2 className=" w-full">
-                <Link to="user/student_register">NO ACCOUNT? SIGNUP</Link>
-              </Button2>
+
+              <Link to="user/student_register">
+                <Button2 className=" w-full">NO ACCOUNT? SIGNUP</Button2>
+              </Link>
             </div>
           </form>
         </div>

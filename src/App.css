@@ -75,7 +75,31 @@ a:hover {
   font-size: small;
 }
 
-@media screen and (max-width: 630px) {
+/* SINGLE POST VIEW STYLES */
+
+
+.image-card p {
+  margin: 2rem;
+}
+
+.post-container {
+width: 95%;
+}
+
+.side-sec p {
+  padding: 1rem 0 1rem 0;
+}
+
+.post-img img {
+width: 4.5rem;
+height: 4.5rem;
+}
+
+.post-img span {
+  padding-left: .4rem;
+}
+
+@media screen and (max-width: 990px) {
   nav {
     width: 100%;
     padding: 2%;
@@ -90,4 +114,18 @@ a:hover {
     justify-content: center;
     align-items: center;
   }
+  .singlepost {
+    padding: 2%;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+  .post-container {
+width: 100%;
+}
+.btn-d {
+  font-size: small;
+  
+}
 }

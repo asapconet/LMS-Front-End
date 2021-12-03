@@ -11,7 +11,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className="footer h-20 w-full text-center text-sm text-white absolute bg-black">
+    <div className="footer h-20 w-full text-center text-sm text-white bg-black">
       <div className="flex py-4 justify-center">
         <FaFacebook className="mx-5 text-medium " />
         <FaTwitter />

@@ -61,15 +61,13 @@
   transition: all 0.4s;
 }
 
-
 .form-control input::placeholder {
   color: #c7c2c2;
   text-align: left;
   font-weight: 300;
-
 }
 
-.signin-container{
+.signin-container {
   display: flex;
   justify-content: center;
   align-content: center;
@@ -81,4 +79,23 @@
   color: black;
   font-size: 1rem;
   font-weight: 300;
+}
+
+@media screen and (max-width: 630px) {
+  .registration-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .learn-more {
+    width: 90%;
+    text-align: center;
+  }
+.signup-student-form {
+  width: 90%;
+  padding-top: 4rem;
+}
+.signin-container {
+  
+}
 }

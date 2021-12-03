@@ -1,6 +1,6 @@
 import React from "react";
 import "./Registration.css";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 import {
   FaUser,
   FaEnvelope,
@@ -56,7 +56,7 @@ const SignIn = () => {
           </form>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

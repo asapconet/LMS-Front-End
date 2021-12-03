@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Button1, { Button2, Button3 } from "../Components/button";
 import "./Registration.css";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 import {
   FaUser,
   FaEnvelope,
@@ -75,7 +75,7 @@ const Registration = () => {
           </form>
         </div>
       </div>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 };

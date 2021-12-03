@@ -3,7 +3,7 @@ import React from "react";
 const Button1 = ({ children, onClick, className }) => {
   return (
     <button
-      className={` border  border-white h-10 px-10 text-white text-lg font-bold ${className}`}
+      className={`border  border-white h-10 px-10 text-white text-lg font-bold ${className}`}
       onClick={onClick}
     >
       {children}

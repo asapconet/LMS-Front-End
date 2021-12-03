@@ -1,6 +1,6 @@
-import React from 'react'
-import './Registration.css'
-import Footer from './Footer';
+import React from "react";
+import "./Registration.css";
+// import Footer from "./Footer";
 import {
   FaUser,
   FaEnvelope,
@@ -10,17 +10,17 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import { Button2, Button3 } from "../Components/button";
-
-
-
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const submitHandler = () => {
     return null;
   };
-    return (
-      <div className='signin-container'>
-        <div className="signup-student-form">
+
+
+  return (
+    <div className="signin-container">
+      <div className="signup-student-form">
         <div className="form-container">
           <div className=" flex justify-center p-2 form-header">
             <FaUser />
@@ -33,12 +33,12 @@ const SignIn = () => {
             <div className=" flex items-center form-control">
               <label htmlFor=""></label>
               <FaEnvelope />
-              <input type="flex items-center" placeholder="Your Email" />
+              <input type="text" placeholder="Your Email" />
             </div>
             <div className="flex items-center form-control">
               <label htmlFor=""></label>
               <FaLock />
-              <input type="text" placeholder="Your Password" />
+              <input type="password" placeholder="Your Password" />
             </div>
 
             <Button3 className="my-4 text-center w-full"> SUBMIT</Button3>
@@ -48,14 +48,17 @@ const SignIn = () => {
                 <FaTwitter className="mx-2" />
                 <FaFacebook className="mx-2" />
               </span>
-              <Button2 className=" w-full">NO ACCOUNT? SIGNUP</Button2>
+
+              <Link to="user/student_register">
+                <Button2 className=" w-full">NO ACCOUNT? SIGNUP</Button2>
+              </Link>
             </div>
           </form>
         </div>
       </div>
-        <Footer />
-      </div>
-    );
-}
+      {/* <Footer /> */}
+    </div>
+  );
+};
 
 export default SignIn;

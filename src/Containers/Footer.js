@@ -11,8 +11,8 @@ import {
 
 const Footer = () => {
   return (
-    <div className="footer h-20 w-full text-center text-sm absolute bg-black">
-      <div className="flex py-4 justify-center">
+    <div className="footer h-20 w-full text-center text-xs text-white bg-black">
+      <div className="flex py-4 text-lg justify-center">
         <FaFacebook className="mx-5 text-medium " />
         <FaTwitter />
         <FaYoutube className="mx-5 text-medium " />
@@ -21,7 +21,7 @@ const Footer = () => {
         <FaGooglePlus />
         <FaPinterest className="mx-5 text-medium " />
       </div>
-      © {new Date().getFullYear} {""} Copyrights Dem boys
+      © {new Date().getFullYear()} {""} Copyrights Dem boys
     </div>
   );
 };

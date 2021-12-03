@@ -49,10 +49,32 @@ a:hover {
   color: white;
 }
 
+/* END OF HOME STYLES */
+
 /* FOOTER STYLES */
 .footer {
   bottom: 0;
+  /* position: fixed; */
 }
+
+/* END OF FOOTER STYLE */
+.pagination {
+
+  border-top: solid .05rem white;
+  padding-top: 2rem;
+  margin: 5% 16% 4.5% 16%;
+}
+
+.pagination ul li {
+  padding: 0.4rem;
+  background-color: white;
+  margin: .1rem;
+  border-radius: .4rem;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: small;
+}
+
 @media screen and (max-width: 630px) {
   nav {
     width: 100%;

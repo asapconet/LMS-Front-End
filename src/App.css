@@ -47,6 +47,13 @@ a:hover {
   justify-content: center;
   align-items: center;
   color: white;
+  padding: 10.85rem;
+}
+.home-icon1 {
+  font-size: xx-large;
+}
+.home-icon2 {
+display: none;
 }
 
 /* END OF HOME STYLES */
@@ -102,10 +109,25 @@ height: 4.5rem;
 @media screen and (max-width: 990px) {
   nav {
     width: 100%;
-    padding: 2%;
+    padding: 1%;
   }
   nav a {
     padding: 0.2rem;
+  }
+  .home {
+    padding: 5.1rem;
+  }
+  .home-icon1 {
+    display: none;
+  }
+  .home-icon2 {
+    display: block;
+  font-size: xx-large;
+}
+
+  .home-btn {
+  font-size: medium;
+  padding: .2rem;
   }
   .blog {
     padding: 5% 0 2% 0;
@@ -126,6 +148,5 @@ width: 100%;
 }
 .btn-d {
   font-size: small;
-  
 }
 }

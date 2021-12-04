@@ -1,5 +1,5 @@
 import React from "react";
-import "./Registration.css";
+import "../assets/css/Registration.css";
 // import Footer from "./Footer";
 import {
   FaUser,

@@ -64,7 +64,7 @@
 .form-control input::placeholder {
   color: #c7c2c2;
   text-align: left;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .signin-container {

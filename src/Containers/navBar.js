@@ -1,10 +1,14 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
 import { FaInfinity } from "react-icons/fa";
 
 export const NavBar = () => {
-  const [isLogged] = useState(true)
+  const [isLogged, setIsLogged] = useState(true);
+
+  const signoutHandler = () => {
+    setIsLogged(false);
+  };
 
   return (
     <nav>
@@ -30,7 +34,7 @@ export const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/user/student_register">Sign up</Link>
+            <Link to="/user/student_register" onClick={signoutHandler}>{isLogged ? 'Log out' : 'Sign up'}</Link>
           </li>
         </ul>
       </div>

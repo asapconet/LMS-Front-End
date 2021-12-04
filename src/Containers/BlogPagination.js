@@ -2,6 +2,7 @@ import React from "react";
 import Button1 from "../Components/button";
 import Footer from "./Footer";
 import { NavBar } from "./navBar";
+import axios from "axios";
 import IMG from "../assets/IMG.PNG";
 
 const BlogPagination = () => {

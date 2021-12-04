@@ -1,6 +1,7 @@
 import React from "react";
 import Button1 from "../Components/button";
 import { FaDownload } from "react-icons/fa";
+import axios from "axios";
 import lebron from "../assets/lebron.JPG";
 import  post  from "../data";
 

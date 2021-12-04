@@ -1,5 +1,6 @@
 import React from "react";
 import "../assets/css/Registration.css";
+import axios from "axios";
 // import Footer from "./Footer";
 import {
   FaUser,

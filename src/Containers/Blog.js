@@ -1,5 +1,6 @@
 import React from "react";
 import Button1 from "../Components/button";
+import axios from "axios";
 import SinglePost from "./SinglePost";
 
 const Blog = () => {

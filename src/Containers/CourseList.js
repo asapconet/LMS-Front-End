@@ -1,5 +1,5 @@
 import React from 'react'
-import '../assets/css/CourseList.css'
+import './CourseList.css'
 import CourseComponent from '../Components/CoursesComponent'
 import axios from "axios";
 const CourseList = () => {

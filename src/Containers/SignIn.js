@@ -1,6 +1,5 @@
-import React from "react";
-import "../assets/css/Registration.css";
-import axios from "axios";
+import React, { useState } from "react";
+import "./Registration.css";
 // import Footer from "./Footer";
 import {
   FaUser,
@@ -12,13 +11,31 @@ import {
 } from "react-icons/fa";
 import { Button2, Button3 } from "../Components/button";
 import { Link } from "react-router-dom";
+// import { Input } from "postcss";
 
 const SignIn = () => {
-  const submitHandler = () => {
-    return null;
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
+  const [error, setError] = useState();
+
+  const signinHandler = (event) => {
+    event.preventDefault();
+    if (enteredEmail.trim().length !== 0 && enteredPassword ) {
+      return console.log('welcome to our portal, your details are',{
+        username: enteredEmail,
+        password: enteredPassword,
+      })
+    }
+    setError({ name: "Invalid input", desc: "this thing I dont get" });
+    return console.log(error);
   };
 
-
+  const emailListener = (e) => {
+    setEnteredEmail(e.target.value);
+  };
+  const passwordListener = (e) => {
+    setEnteredPassword(e.target.event);
+  };
   return (
     <div className="signin-container">
       <div className="signup-student-form">
@@ -30,19 +47,34 @@ const SignIn = () => {
 
           {/* PROFILE CREATION ENTRY FORM */}
 
-          <form className="p-5" onSubmit={submitHandler}>
+          <form className="p-5" onSubmit={signinHandler}>
             <div className=" flex items-center form-control">
-              <label htmlFor=""></label>
+              <label htmlFor="email"></label>
               <FaEnvelope />
-              <input type="text" placeholder="Your Email" />
+              <input
+                id="email"
+                type="text"
+                value={enteredEmail}
+                onChange={emailListener}
+                placeholder="Your Email"
+              />
             </div>
             <div className="flex items-center form-control">
-              <label htmlFor=""></label>
+              <label htmlFor="password"></label>
               <FaLock />
-              <input type="password" placeholder="Your Password" />
+              <input
+                id="password"
+                type="password"
+                value={enteredPassword}
+                onChange={passwordListener}
+                placeholder="Your Password"
+              />
             </div>
 
-            <Button3 className="my-4 text-center w-full"> SUBMIT</Button3>
+            <Button3 className="my-4 text-center w-full" type="submit">
+              {" "}
+              SUBMIT
+            </Button3>
             <div className="text-center">
               <span className="flex justify-center py-8 border-t ">
                 <FaInstagram className="mx-2" />

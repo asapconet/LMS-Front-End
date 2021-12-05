@@ -3,7 +3,7 @@ import Button1 from "../Components/button";
 import { FaDownload } from "react-icons/fa";
 import axios from "axios";
 import lebron from "../assets/lebron.JPG";
-import  post  from "../data";
+import post from "../data";
 
 const SinglePost = () => {
   return (
@@ -53,7 +53,11 @@ const SinglePost = () => {
             return (
               <div key={id} className="flex p-1 text-xs font-medium post-img">
                 <img src={image} alt={name} />
-                <span>{desc}</span>
+                <span>
+                  {desc}
+                  <p className="text-right font-bold">by {name}</p>
+                </span>
+                <span></span>
               </div>
             );
           })}

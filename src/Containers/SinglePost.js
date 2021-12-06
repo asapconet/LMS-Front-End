@@ -5,6 +5,7 @@ import axios from "axios";
 import lebron from "../assets/lebron.JPG";
 import post from "../data";
 import AboutCard from "../Components/AboutCard";
+import CommentCard from "../Components/CommentCard";
 
 const SinglePost = () => {
   return (
@@ -30,8 +31,10 @@ const SinglePost = () => {
                 </Button1>
               </div>
             </div>
+            <AboutCard/>
+            <CommentCard/>
           </div>
-          <AboutCard/>
+          
         </div>
       </div>
       <div className="side-sec text-center  text-white w-full capitalize">

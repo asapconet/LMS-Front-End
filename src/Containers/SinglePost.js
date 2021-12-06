@@ -31,8 +31,10 @@ const SinglePost = () => {
                 </Button1>
               </div>
             </div>
-            <AboutCard/>
+           <div>
+                <AboutCard/>
             <CommentCard/>
+           </div>
           </div>
           
         </div>

@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaUser } from 'react-ic
 
 const AboutCard = (props) => {
     return (
-        <div className="bg-white mb-2 mt-4 pt-4">
+        <div className=" main bg-white mb-2 mt-4 pt-4">
             <div>
                 <div className="about-header p-2">
                 <strong>About Author &nbsp; </strong>

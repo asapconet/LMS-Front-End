@@ -4,6 +4,7 @@ import { FaDownload } from "react-icons/fa";
 import axios from "axios";
 import lebron from "../assets/lebron.JPG";
 import post from "../data";
+import AboutCard from "../Components/AboutCard";
 
 const SinglePost = () => {
   return (
@@ -30,6 +31,7 @@ const SinglePost = () => {
               </div>
             </div>
           </div>
+          <AboutCard/>
         </div>
       </div>
       <div className="side-sec text-center  text-white w-full capitalize">

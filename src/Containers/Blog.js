@@ -23,10 +23,11 @@ const Blog = () => {
       </div>
       <div className=" singlepost px-40">
         <SinglePost />
+        <Comment/>
       </div>
-      <div className="singlepost px-40">
-      <Comment/>
-      </div>
+
+     
+      
      
     </>
   );

@@ -1,0 +1,55 @@
+/* Header withe About Author */
+
+.main 
+{
+    max-width: 60rem;
+}
+.about-header
+{
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 1.5rem;
+    border-bottom: 2px solid gray;
+}
+
+/* The main part of the About Card */
+.about-body
+{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.about-text
+{
+    color: black;
+    text-align: justify;
+}
+.img-square-holder
+{
+    width: 6rem;
+    height: 6rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+     rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+/* 
+.img-square-holder::after
+{
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+} */
+
+.round-img
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    padding: 0.5rem;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}

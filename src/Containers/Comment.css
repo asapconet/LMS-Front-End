@@ -1,0 +1,39 @@
+.comment-section
+{
+    
+}
+
+/* Comment Header */
+
+.comment-header {
+    border-bottom: 1px solid gray;
+    font-weight: 600;
+}
+.comment-form-control
+{
+    
+    padding:0  0 10px 0;
+}
+
+.comment-form-control input,
+.comment-form-control textarea
+{
+  
+    width: 100%;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+/* On Focus on this Input */
+.comment-form-control input:focus,
+.comment-form-control textarea:focus
+{
+    outline: none;
+    border: 3px solid gray;
+}
+/* Center the Button */
+.action-control 
+{
+    display: flex;
+    justify-content: center;
+}

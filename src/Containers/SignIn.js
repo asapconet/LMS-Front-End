@@ -35,7 +35,7 @@ const SignIn = () => {
   };
   const passwordListener = (e) => {
     setEnteredPassword(e.target.event);
-  };
+ };
   return (
     <div className="signin-container">
       <div className="signup-student-form">

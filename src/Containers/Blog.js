@@ -25,9 +25,6 @@ const Blog = () => {
         <SinglePost />
         <Comment/>
       </div>
-
-     
-      
      
     </>
   );

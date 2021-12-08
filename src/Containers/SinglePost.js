@@ -5,6 +5,8 @@ import lebron from "../assets/lebron.JPG";
 import post from "../data";
 import AboutCard from "../Components/AboutCard";
 import CommentCard from "../Components/CommentCard";
+import Comment from "../Components/Comment";
+
 
 const SinglePost = () => {
   return (
@@ -30,12 +32,11 @@ const SinglePost = () => {
                 </Button1>
               </div>
             </div>
-           <div>
-                <AboutCard/>
-            <CommentCard/>
-           </div>
+            <AboutCard />
+            <CommentCard />
+            <Comment/>
+            <div></div>
           </div>
-          
         </div>
       </div>
       <div className="side-sec text-center  text-white w-full capitalize">

@@ -1,6 +1,6 @@
 import React from "react";
 import Button1, { Button2, Button3 } from "../Components/button";
-import "./Registration.css";
+import "../Styles/Pages/Registration.css";
 // import Footer from "./Footer";
 import {
   FaUser,

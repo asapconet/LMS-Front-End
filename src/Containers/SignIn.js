@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Registration.css";
+import "../Styles/Pages/Registration.css";
 // import Footer from "./Footer";
 import {
   FaUser,

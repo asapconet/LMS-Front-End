@@ -1,7 +1,7 @@
 import React from "react";
 import Button1 from "../Components/button";
+// import axios from "axios";
 import SinglePost from "./SinglePost";
-import Comment from './Comment';
 
 const Blog = () => {
   return (
@@ -22,7 +22,6 @@ const Blog = () => {
       </div>
       <div className=" singlepost px-40">
         <SinglePost />
-        <Comment/>
       </div>
      
     </>

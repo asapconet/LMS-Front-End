@@ -7,6 +7,7 @@ const Input = ({
   register,
   required,
   disabled = false,
+  className,
   type,
 }) => {
   return (
@@ -18,7 +19,7 @@ const Input = ({
         {label}
       </label>
       <input
-        className="border border-gray-500 outline-none placeholder-gray-400 rounded-sm h-12 w-full px-5 focus:border-primary"
+        className={`outline-none placeholder-gray-400 rounded-sm h-12 w-full px-5 focus:border-primary + ${className}`}
         id={title}
         type={type}
         placeholder={placeholder}

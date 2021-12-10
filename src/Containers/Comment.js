@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from "axios";
 import './Comment.css'
 import Button1 from '../Components/button';
 

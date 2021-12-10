@@ -1,7 +1,6 @@
 import React from 'react'
 import './CourseList.css'
 import CourseComponent from '../Components/CoursesComponent'
-import axios from "axios";
 const CourseList = () => {
     return (
         <div className="courses-container">

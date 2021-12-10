@@ -9,9 +9,11 @@ import Blog from "./Blog";
 import BlogPagination from "./BlogPagination";
 import PostCreate from "./PostCreate";
 import CourseList from "./CourseList";
+import SinglePost from './SinglePost'
+import { About } from "./About";
 
 const Main = () => {
-  const [token, setToken] = useState();
+  const [token, setToken] = useState( true);
 
   if (!token) {
     return <SignIn setToken={setToken} />;
@@ -28,12 +30,14 @@ const Main = () => {
           </>
         }
       />
-      <Route path="/courses/" element={<CourseList />} />
-      <Route path="/posts/" element={<Blog />} />
-      <Route path="/posts/create" element={<PostCreate />} />
-      <Route path="/posts/pege" element={<BlogPagination />} />
       <Route path="/user/login" element={<SignIn />}></Route>
       <Route path="/user/student_register" element={<Registration />} />
+      <Route path="/posts/" element={<Blog />} />
+      <Route path='/posts/singlepost' element={<SinglePost/>}/>
+      <Route path="/free" element={<BlogPagination />} />
+      <Route path="/posts/create" element={<PostCreate />} />
+      <Route path='/about' element={<About/>} />
+      <Route path="/courses/" element={<CourseList />} />
     </Routes>
   );
 };

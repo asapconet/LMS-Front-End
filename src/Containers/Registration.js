@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   FaUser,
   FaEnvelope,
@@ -8,12 +9,10 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import "../Styles/Pages/Registration.css";
+import { about } from "../data";
 import Button1, { Button2, Button3 } from "../Components/button";
 
-
-
 const Registration = () => {
-  // const [isLogin, setIsLogin] = useState (true)
   const submitHandler = () => {
     return null;
   };
@@ -25,11 +24,13 @@ const Registration = () => {
         </div>
         <div className="learn-more-others">
           <p className="text">
-            For Unlimited Access to our Latest and well organised E-learning
-            Materials Uploaded On Daily Basis By Valid Lecturer of the
-            Department.
-          </p>
-          <Button1>Learn More</Button1>
+            {about.slice(0, 256)}...
+            </p>
+          <Button1>
+            <Link to='about'>
+
+            </Link>
+            Learn More</Button1>
         </div>
       </div>
       <div className="signup-student-form">
@@ -70,7 +71,9 @@ const Registration = () => {
                 <FaTwitter className="mx-2" />
                 <FaFacebook className="mx-2" />
               </span>
-              <Button2 className=" w-full">HAVE AN ACCOUNT? LOGIN</Button2>
+              <Button2 className=" w-full">
+                <Link to="/user/login">HAVE AN ACCOUNT? LOGIN</Link>
+              </Button2>
             </div>
           </form>
         </div>

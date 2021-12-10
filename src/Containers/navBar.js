@@ -19,7 +19,7 @@ export const NavBar = () => {
           <a href="/">Home</a>
           <a href="sumn.com">About Us</a>
           {!isLogged && (
-            <Link to="/Blog" href="sumn.com">
+            <Link to="/posts">
               Blog
             </Link>
           )}

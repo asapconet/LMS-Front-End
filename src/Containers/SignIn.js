@@ -101,7 +101,7 @@ export default function SignIn ({ setToken }) {
                 <FaFacebook className="mx-2" />
               </span>
 
-              <Link to="user/student_register">
+              <Link to="/user/student_register">
                 <Button2 className=" w-full">NO ACCOUNT? SIGNUP</Button2>
               </Link>
             </div>

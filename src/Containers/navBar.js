@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { FaInfinity } from "react-icons/fa";
 
 export const NavBar = () => {
-  const [isLogged, setIsLogged] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
 
   const signoutHandler = () => {
-    setIsLogged(false);
+    setIsLogged(true);
   };
 
   return (

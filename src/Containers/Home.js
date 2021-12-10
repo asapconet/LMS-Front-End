@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import Button1 from "../Components/button";
 // import {FaBook} from 'react-icons/fa'
+import Button1 from "../Components/button";
+import SignIn from "./SignIn";
 
 const Home = ({signInhandler}) => {
-  const [isRegistered] = useState(true);
+  const [isRegistered, setIsRegistered] = useState();
 
   const startHandler = () => {
-    if (isRegistered && signInhandler) {
-
+    if (!isRegistered) {
+      console.log('somethhing')
+      return <SignIn setIsRegistered={setIsRegistered}/>
     }
   };
 

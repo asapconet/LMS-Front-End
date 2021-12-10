@@ -1,7 +1,4 @@
 import React from "react";
-import Button1, { Button2, Button3 } from "../Components/button";
-import "../Styles/Pages/Registration.css";
-// import Footer from "./Footer";
 import {
   FaUser,
   FaEnvelope,
@@ -10,6 +7,9 @@ import {
   FaFacebook,
   FaInstagram,
 } from "react-icons/fa";
+import "../Styles/Pages/Registration.css";
+import Button1, { Button2, Button3 } from "../Components/button";
+
 
 
 const Registration = () => {

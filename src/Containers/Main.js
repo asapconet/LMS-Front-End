@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router";
+
 import { NavBar } from "./navBar";
 import Home from "./Home";
 import Registration from "./Registration";
@@ -8,7 +9,14 @@ import Blog from "./Blog";
 import BlogPagination from "./BlogPagination";
 import PostCreate from "./PostCreate";
 import CourseList from "./CourseList";
+
 const Main = () => {
+  const [token, setToken] = useState();
+
+  if (!token) {
+    return <SignIn setToken={setToken} />;
+  }
+
   return (
     <Routes>
       <Route

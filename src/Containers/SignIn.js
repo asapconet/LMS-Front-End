@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import "../Styles/Pages/Registration.css";
+import React, { useState } from "react"; 
+import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'
+
 // import Footer from "./Footer";
 import {
   FaUser,
@@ -9,25 +11,42 @@ import {
   FaFacebook,
   FaInstagram,
 } from "react-icons/fa";
+import "../Styles/Pages/Registration.css";
 import { Button2, Button3 } from "../Components/button";
-import { Link } from "react-router-dom";
-// import { Input } from "postcss";
 
-const SignIn = () => {
-  const [enteredEmail, setEnteredEmail] = useState("");
-  const [enteredPassword, setEnteredPassword] = useState("");
-  const [error, setError] = useState();
 
-  const signinHandler = (event) => {
+async function loginUser(credentials) {
+  return fetch("https://lms-app-back-end.herokuapp.com/auth/jwt/verify/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(credentials),
+  }).then((data) => data.json());
+}
+
+
+export default function SignIn ({ setToken }) {
+  const [enteredEmail, setEnteredEmail] = useState();
+  const [enteredPassword, setEnteredPassword] = useState();
+  // const [error, setError] = useState();
+
+  const signinHandler = async (event) => {
     event.preventDefault();
-    if (enteredEmail.trim().length !== 0 && enteredPassword ) {
-      return console.log('welcome to our portal, your details are',{
-        username: enteredEmail,
-        password: enteredPassword,
-      })
-    }
-    setError({ name: "Invalid input", desc: "this thing I dont get" });
-    return console.log(error);
+    const token = await loginUser ({
+      enteredEmail,
+      enteredPassword
+    })
+    console.log('logss')
+    setToken(token)
+    // if (enteredEmail.trim().length !== 0 && enteredPassword) {
+    //   return console.log("welcome to our portal, your details are", {
+    //     username: enteredEmail,
+    //     password: enteredPassword,
+    //   });
+    // }
+    // setError({ name: "Invalid input", desc: "this thing I dont get" });
+    // return console.log(error);
   };
 
   const emailListener = (e) => {
@@ -35,7 +54,7 @@ const SignIn = () => {
   };
   const passwordListener = (e) => {
     setEnteredPassword(e.target.event);
- };
+  };
   return (
     <div className="signin-container">
       <div className="signup-student-form">
@@ -94,4 +113,8 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+
+
+SignIn.propTypes = {
+  setToken: PropTypes.func.isRequired
+}

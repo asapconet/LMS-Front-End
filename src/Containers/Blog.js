@@ -1,6 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button1 from "../Components/button";
-import SinglePost from "./SinglePost";
+import BlogPagination from "./BlogPagination";
+// import axios from "axios";
+// import SinglePost from "./SinglePost";
 
 const Blog = () => {
   return (
@@ -16,11 +19,14 @@ const Blog = () => {
             something something something about nothing and nothing became
             somthing we never knew something something something about nothing
           </p>
-          <Button1>Start Your Courses</Button1>
+          <Button1>
+            <Link to="">Start Your Courses</Link>
+          </Button1>
         </div>
       </div>
       <div className=" singlepost px-40">
-        <SinglePost />
+        <BlogPagination />
+        {/* <SinglePost /> */}
       </div>
     </>
   );

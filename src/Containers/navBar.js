@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { FaInfinity } from "react-icons/fa";
 
 export const NavBar = () => {
-  const [isLogged, setIsLogged] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
 
   const signoutHandler = () => {
-    setIsLogged(false);
+    setIsLogged(true);
   };
 
   return (
@@ -19,7 +19,7 @@ export const NavBar = () => {
           <a href="/">Home</a>
           <a href="sumn.com">About Us</a>
           {!isLogged && (
-            <Link to="/Blog" href="sumn.com">
+            <Link to="/posts">
               Blog
             </Link>
           )}
@@ -30,7 +30,7 @@ export const NavBar = () => {
         <ul className="flex font-medium">
           <li>
             <Link to="/user/login" className="mx-3">
-              {isLogged ? "Login" : "Download Materials"}
+              {!isLogged ? "Login" : "Download Materials"}
             </Link>
           </li>
           <li>

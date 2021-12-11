@@ -1,0 +1,39 @@
+.comment-number
+{
+    color: black;
+    text-align: left;
+    border-bottom: 2px solid gray;
+}
+.comment-body
+{
+    display: flex;
+    justify-content: left;
+}
+.tiny-square-holder
+{
+width: 4rem;
+height: 4rem;
+}
+
+.round-img-comment
+{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 3rem;
+    height: 100%;
+    width: 100%;
+
+    border-radius: 100%;
+}
+
+.comment-text
+{
+    color:black;
+}
+
+.comment-icon 
+{
+  display: inline;
+}
+

@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import Button1 from "../Components/button";
+import { Link } from "react-router-dom";
 // import {FaBook} from 'react-icons/fa'
+import Button1 from "../Components/button";
+import SignIn from "./SignIn";
 
-const Home = ({signInhandler}) => {
-  const [isRegistered] = useState(true);
+const Home = ({ signInhandler }) => {
+  const [isRegistered, setIsRegistered] = useState();
 
   const startHandler = () => {
-    if (isRegistered && signInhandler) {
-
+    if (!isRegistered) {
+      console.log("somethhing");
+      return <SignIn setIsRegistered={setIsRegistered} />;
     }
   };
-
 
   return (
     <div className=" home flex flex-col items-center bg-black text-center items-center">
@@ -22,7 +24,9 @@ const Home = ({signInhandler}) => {
         something something something about nothing and nothing became somthing
         we never knew something something something about nothing
       </p>
-      <Button1 className="home-btn" onClick={startHandler}>START YOUR E-LEARNING </Button1>
+      <Button1 className="home-btn " onClick={startHandler}>
+        <Link to="/free">START YOUR E-LEARNING </Link>
+      </Button1>
     </div>
   );
 };

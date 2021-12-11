@@ -25,9 +25,10 @@ a {
   padding: 0.7rem;
   height: 100%;
 }
-a:hover {
+/* a:hover {
   background-color: #a5a3a3;
-}
+} */
+
 .btn1 {
   color: white !important;
   background-color: black;
@@ -61,7 +62,7 @@ display: none;
 /* FOOTER STYLES */
 .footer {
   bottom: 0;
-  /* position: fixed; */
+  position: fixed;
 }
 
 /* END OF FOOTER STYLE */
@@ -84,6 +85,9 @@ display: none;
 
 /* SINGLE POST VIEW STYLES */
 
+.post1 {
+padding: 2% 15% 2% 15%;
+}
 
 .image-card p {
   margin: 2rem;
@@ -106,6 +110,7 @@ height: 4.5rem;
   padding-left: .4rem;
 }
 
+/* END OF SINGLEPOST STYLE */
 @media screen and (max-width: 990px) {
   nav {
     width: 100%;

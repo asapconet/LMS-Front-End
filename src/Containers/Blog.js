@@ -25,9 +25,8 @@ const Blog = () => {
         </div>
       </div>
       <div className=" singlepost px-40">
-        <BlogPagination />
-        {/* <SinglePost /> */}
       </div>
+        <BlogPagination />
     </>
   );
 };

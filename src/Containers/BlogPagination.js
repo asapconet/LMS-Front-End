@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button1 from "../Components/button";
-// import Footer from "./Footer";
+import Footer from "./Footer";
 import post from "../data";
 
 const BlogPagination = () => {
@@ -53,7 +53,7 @@ const BlogPagination = () => {
           <li>5</li>
         </ul>
       </div>
-      <div className="footer-gen">{/* <Footer /> */}</div>
+      <div className="footer-gen"><Footer /></div>
     </div>
   );
 };

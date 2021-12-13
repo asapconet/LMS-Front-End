@@ -1,15 +1,17 @@
-import React, { useState } from "react";
-import "../App.css";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaInfinity } from "react-icons/fa";
+import "../App.css";
+import AuthContext from "../Context/AuthContext";
 
 export const NavBar = () => {
   const [isLogged, setIsLogged] = useState(false);
+  const { isLoggedIn, logout } = useContext(AuthContext)
 
-  const signoutHandler = () => {
-    setIsLogged(true);
-  };
 
+  if (!setIsLogged) {
+    return (true)
+  }
   return (
     <nav>
       <div className="flex">
@@ -17,7 +19,7 @@ export const NavBar = () => {
         {/* <img src="" alt="Our Brand" /> */}
         <span className="mx-4 font-medium">
           <a href="/">Home</a>
-          <a href="sumn.com">About Us</a>
+          <a href="/about">About Us</a>
           {!isLogged && (
             <Link to="/posts">
               Blog
@@ -30,11 +32,11 @@ export const NavBar = () => {
         <ul className="flex font-medium">
           <li>
             <Link to="/user/login" className="mx-3">
-              {!isLogged ? "Login" : "Download Materials"}
+              {!isLoggedIn() ? "Login" : "Download Materials"}
             </Link>
           </li>
           <li>
-            <Link to="/user/student_register" onClick={signoutHandler}>{isLogged ? 'Log out' : 'Sign up'}</Link>
+            <Link to="/user/student_register" onClick={logout}>{isLoggedIn() ? 'Log out' : 'Sign up'}</Link>
           </li>
         </ul>
       </div>

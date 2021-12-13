@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import { NavBar } from "./navBar";
 import Home from "./Home";
@@ -9,15 +9,15 @@ import Blog from "./Blog";
 import BlogPagination from "./BlogPagination";
 import PostCreate from "./PostCreate";
 import CourseList from "./CourseList";
-import SinglePost from './SinglePost'
+import SinglePost from "./SinglePost";
 import { About } from "./About";
+import { useContext } from "react/cjs/react.development";
+import AuthContext from "../Context/AuthContext";
 
 const Main = () => {
-  const [token, setToken] = useState( true);
+  const { isLoggedIn } = useContext(AuthContext);
 
-  if (!token) {
-    return <SignIn setToken={setToken} />;
-  }
+  console.log({ logged: isLoggedIn() });
 
   return (
     <Routes>
@@ -30,13 +30,13 @@ const Main = () => {
           </>
         }
       />
-      <Route path="/user/login" element={<SignIn />}></Route>
+      <Route path="/user/login" element={<SignIn />} />
       <Route path="/user/student_register" element={<Registration />} />
       <Route path="/posts/" element={<Blog />} />
-      <Route path='/posts/singlepost' element={<SinglePost/>}/>
+      <Route path="/posts/singlepost" element={<SinglePost />} />
       <Route path="/free" element={<BlogPagination />} />
       <Route path="/posts/create" element={<PostCreate />} />
-      <Route path='/about' element={<About/>} />
+      <Route path="/about" element={<About />} />
       <Route path="/courses/" element={<CourseList />} />
     </Routes>
   );

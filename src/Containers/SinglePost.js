@@ -8,6 +8,7 @@ import CommentCard from "../Components/CommentCard";
 import Comment from "../Components/Comment";
 import { NavBar } from "./navBar";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 const SinglePost = () => {
   return (
@@ -69,13 +70,13 @@ const SinglePost = () => {
                     {desc}
                     <p className="text-right font-bold">by {name}</p>
                   </span>
-                  <span></span>
                 </div>
               );
             })}
           </div>
         </div>
       </section>
+      <Footer/>
     </>
   );
 };

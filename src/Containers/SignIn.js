@@ -1,8 +1,7 @@
-import React, { useState } from "react"; 
-import { Link } from "react-router-dom";
-import PropTypes from 'prop-types'
+import React, { useState, useRef, useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
-// import Footer from "./Footer";
 import {
   FaUser,
   FaEnvelope,
@@ -13,48 +12,47 @@ import {
 } from "react-icons/fa";
 import "../Styles/Pages/Registration.css";
 import { Button2, Button3 } from "../Components/button";
+import { LoginUrl } from "../API/BaseURL";
+import AuthContext from "../Context/AuthContext";
 
+export default function SignIn() {
+  const enteredMatricNumberRef = useRef();
+  const enteredPasswordRef = useRef();
+  const { isLoggedIn, login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-async function loginUser(credentials) {
-  return fetch("https://lms-app-back-end.herokuapp.com/auth/jwt/verify/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-  }).then((data) => data.json());
-}
+  useEffect(() => {
+    isLoggedIn() && navigate("/");
+    // const token = localStorage.getItem("refresh");
+    // console.log({ token, h: "hello" });
+    // token && isLoggedIn(token) && navigate("/");
+  }, [isLoggedIn, navigate]);
 
+  // const switchModeHandler = () => {
+  //   setIsLogged((prevState) => !prevState);
+  // };
 
-export default function SignIn ({ setToken }) {
-  const [enteredEmail, setEnteredEmail] = useState();
-  const [enteredPassword, setEnteredPassword] = useState();
-  // const [error, setError] = useState();
-
-  const signinHandler = async (event) => {
+  const signinHandler = (event) => {
     event.preventDefault();
-    const token = await loginUser ({
-      enteredEmail,
-      enteredPassword
-    })
-    console.log('logss')
-    setToken(token)
-    // if (enteredEmail.trim().length !== 0 && enteredPassword) {
-    //   return console.log("welcome to our portal, your details are", {
-    //     username: enteredEmail,
-    //     password: enteredPassword,
-    //   });
-    // }
-    // setError({ name: "Invalid input", desc: "this thing I dont get" });
-    // return console.log(error);
-  };
 
-  const emailListener = (e) => {
-    setEnteredEmail(e.target.value);
+    const enteredMatricNumber = enteredMatricNumberRef.current.value;
+    const enteredPassword = enteredPasswordRef.current.value;
+    console.log(enteredMatricNumber)
+    // return;
+
+    try {
+      login(enteredMatricNumber, enteredPassword);
+
+      // alert(`user logged ${"your token is:" + loggedInUser.refresh}`);
+    } catch (error) {
+      console.log(error || "check credentials, you are not logged in");
+    }
   };
-  const passwordListener = (e) => {
-    setEnteredPassword(e.target.event);
-  };
+  //   .then((data) => {
+  // AuthCtx.loginHandler()
+  //   })
+  //   .catch
+
   return (
     <div className="signin-container">
       <div className="signup-student-form">
@@ -68,14 +66,13 @@ export default function SignIn ({ setToken }) {
 
           <form className="p-5" onSubmit={signinHandler}>
             <div className=" flex items-center form-control">
-              <label htmlFor="email"></label>
+              <label htmlFor="matricNumber"></label>
               <FaEnvelope />
               <input
-                id="email"
-                type="text"
-                value={enteredEmail}
-                onChange={emailListener}
-                placeholder="Your Email"
+                id="matricNumber"
+                type="number"
+                placeholder="Your Matric Number"
+                ref={enteredMatricNumberRef}
               />
             </div>
             <div className="flex items-center form-control">
@@ -84,13 +81,16 @@ export default function SignIn ({ setToken }) {
               <input
                 id="password"
                 type="password"
-                value={enteredPassword}
-                onChange={passwordListener}
                 placeholder="Your Password"
+                ref={enteredPasswordRef}
               />
             </div>
 
-            <Button3 className="my-4 text-center w-full" type="submit">
+            <Button3
+              className="my-4 text-center w-full"
+              type="submit "
+              // onClick={switchModeHandler}
+            >
               {" "}
               SUBMIT
             </Button3>
@@ -111,10 +111,4 @@ export default function SignIn ({ setToken }) {
       {/* <Footer /> */}
     </div>
   );
-};
-
-
-
-SignIn.propTypes = {
-  setToken: PropTypes.func.isRequired
 }

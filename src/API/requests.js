@@ -1,17 +1,14 @@
+import axios from "axios";
 import { LoginUrl, VerifyLoginUrl } from "./BaseURL";
-const headers = {
+
+export const client = axios.create({
+  baseURL: "https://lms-app-back-end.herokuapp.com/auth/"
+});
+
+export const headers = {
   "Content-Type": "application/json",
 };
 
-export const loginUser = async (username, password) => {
-  const response = await fetch(LoginUrl, {
-    method: "POST",
-    body: JSON.stringify({ username, password }),
-    headers,
-  });
-
-  return response
-};
 
 export const verifyToken = async (token) => {
   const response = await fetch(VerifyLoginUrl, {

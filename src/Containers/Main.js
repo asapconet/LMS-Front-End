@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 
 import { NavBar } from "./navBar";
 import Home from "./Home";
@@ -11,13 +11,8 @@ import PostCreate from "./PostCreate";
 import CourseList from "./CourseList";
 import SinglePost from "./SinglePost";
 import { About } from "./About";
-import { useContext } from "react/cjs/react.development";
-import AuthContext from "../Context/AuthContext";
 
 const Main = () => {
-  const { isLoggedIn } = useContext(AuthContext);
-
-  console.log({ logged: isLoggedIn() });
 
   return (
     <Routes>

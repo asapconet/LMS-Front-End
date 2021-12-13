@@ -1,8 +1,9 @@
 import Main from "./Containers/Main";
 function App() {
   return (
-    
-  <Main/>
+    <div className="bg-gray-500">
+      <Main />
+    </div>
   );
 }
 

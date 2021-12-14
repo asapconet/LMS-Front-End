@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Button1 from "../Components/button";
 import Footer from "./Footer";
 import post from "../data";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const BlogPagination = () => {
   const date = {
@@ -47,10 +48,9 @@ const BlogPagination = () => {
       </div>
       <div className="pagination my-12 ">
         <ul className="flex flex-row justify-center">
-          <li>1</li>
-          <li>2</li>
-          <li>...</li>
-          <li>5</li>
+          <li><FaArrowLeft/></li>
+          
+          <li><FaArrowRight/></li>
         </ul>
       </div>
       <div className="footer-gen"><Footer /></div>

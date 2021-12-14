@@ -1,56 +1,57 @@
-.post-container{
-    display: flex;
-    justify-content: center;
-    
+.post-container {
+  display: flex;
+  justify-content: center;
+  /* background-color: green; */
+  text-align: center;
 }
-.post-form
-{
-    width: 90%;
-    background-color: white;
+.post-form {
+
+  width: 60%;
+  background-color:white ;
 }
-.post-header
-{
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    max-width: 100%;
-  
+.post-header {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  max-width: 100%;
 }
-.post-form-control 
-{
-    text-align: left;
+.post-form-control {
+  text-align: left;
 }
 
-input[type="file"]
-{
-    padding: 0;
-    direction: ltr;
+input[type="file"] {
+  padding: 0;
+  direction: ltr;
 }
-.post-main-form form
-{
-    width: 90%;
-    text-align: center;
-    margin: 0 auto;
+.post-main-form form {
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
 }
-.post-form-control
-{
-    width: 100%;
-    padding:0  0 10px 0;
+.post-form-control {
+  width: 100%;
+  padding: 0 0 10px 0;
 }
 
 .post-form-control input,
-.post-form-control textarea
-{
-    width: 100%;
-    border: 2px solid gray;
-    border-radius: 5px;
+.post-form-control textarea {
+  width: 100%;
+  border: 2px solid gray;
+  border-radius: 5px;
 }
 
 /* On Focus on this Input */
 .post-form-control input:focus,
-.post-form-control textarea:focus
-{
-    outline: none;
-    border: 3px solid gray;
+.post-form-control textarea:focus {
+  outline: none;
+  border: 3px solid gray;
+}
+
+@media screen and (max-width: 600px) {
+    .post-form {
+        /* background-color: black; */
+        width: 90%;
+    }
+    
 }

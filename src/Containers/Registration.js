@@ -50,7 +50,7 @@ const Registration = (props) => {
     const enteredPassword = enteredPasswordRef.current.value;
 
     if (isLogged) {
-      console.log(props.registerUser.response);
+      console.log();
     }
     try {
       const newUser = await registerUser( enteredUsername, enteredEmail, enteredPassword);

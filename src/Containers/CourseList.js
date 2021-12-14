@@ -1,30 +1,36 @@
-import React from 'react'
-// import '../Styles/Pages/CourseList.css'
-import CourseComponent from '../Components/CoursesComponent'
+import React from "react";
+import Button1 from "../Components/button";
+import { FaHome } from "react-icons/fa";
+import CourseComponent from "../Components/CoursesComponent";
+
 const CourseList = () => {
-    return (
-        <div className="courses-container">
-            <div className="available-courses">
-                <div className="header-text">
-                    <strong><h1>COURSES AVAILABLE IN OUR DATABASE</h1></strong>
-                </div>
-                <div className="course-section">
-                    <div className="border-b">
-                        <CourseComponent/>
-                        <CourseComponent/>
-                        <CourseComponent/>
-                        <CourseComponent/>
-                        <CourseComponent/>
-                        <CourseComponent/>
-                    </div>
-
-                </div>
-
-            </div>
+  return (
+    <div className="courses-container">
+      <div className="available-courses">
+        <div className="header-text flex justify-between">
+          <h1 className="font-medium uppercase text-center">
+            Choose your disired course below
+          </h1>
+          <a href="/">
+            <FaHome />
+          </a>
         </div>
-    )
-}
+        <div className="course-section">
+          <div className="border-b px-3">
+            <CourseComponent />
+            <CourseComponent />
+            <CourseComponent />
+            <CourseComponent />
+          </div>
+          <a href="/posts/create" className="flex justify-end my-5 px-5">
+            <Button1 className="hover:shadow-lg animate-pulse">
+              Upload a course
+            </Button1>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default CourseList
-
-
+export default CourseList;

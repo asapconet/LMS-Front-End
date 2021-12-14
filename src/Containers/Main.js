@@ -11,6 +11,9 @@ import PostCreate from "./PostCreate";
 import CourseList from "./CourseList";
 import SinglePost from "./SinglePost";
 import { About } from "./About";
+import { Categories } from "./Categories";
+import { useContext } from "react/cjs/react.development";
+import AuthContext from "../Context/AuthContext";
 
 const Main = () => {
 
@@ -30,9 +33,10 @@ const Main = () => {
       <Route path="/posts/" element={<Blog />} />
       <Route path="/posts/singlepost" element={<SinglePost />} />
       <Route path="/free" element={<BlogPagination />} />
+      <Route path='/levels' element={<Categories/>} />
       <Route path="/posts/create" element={<PostCreate />} />
       <Route path="/about" element={<About />} />
-      <Route path="/courses/" element={<CourseList />} />
+      <Route path="/courses" element={<CourseList />} />
     </Routes>
   );
 };

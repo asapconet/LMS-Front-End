@@ -15,7 +15,7 @@ import {
 } from "react-icons/fa";
 import "../Styles/Pages/Registration.css";
 import { Button2, Button3 } from "../Components/button";
-import { LoginUrl } from "../API/BaseURL";
+// import { LoginUrl } from "../API/BaseURL";
 import AuthContext from "../Context/AuthContext";
 
 const schema = Yup.object().shape({

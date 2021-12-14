@@ -14,9 +14,10 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import "../Styles/Pages/Registration.css";
-import { Button2, Button3 } from "../Components/button";
+import { Button2} from "../Components/button";
 // import { LoginUrl } from "../API/BaseURL";
 import AuthContext from "../Context/AuthContext";
+import { LoginUrl } from "../API/BaseURL";
 
 const schema = Yup.object().shape({
   username: Yup.number().required("Matriculation number is required"),

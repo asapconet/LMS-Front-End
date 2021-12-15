@@ -14,8 +14,8 @@ const Main = () => {
     <NavBar />
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/user/login" element={<SignIn />} />
-        <Route path="/user/register" element={<Registration />} />
+        <Route path="/login" element={<SignIn />} />
+        <Route path="/register" element={<Registration />} />
         <Route path="*" element={<ProtectedRoute />} />
       </Routes>
     </>

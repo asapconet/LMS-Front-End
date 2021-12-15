@@ -131,7 +131,7 @@ const Registration = (props) => {
                 <FaFacebook className="mx-2" />
               </span>
               <Button2 className=" w-full">
-                <Link to="/user/login">HAVE AN ACCOUNT? LOGIN</Link>
+                <Link to="/login">HAVE AN ACCOUNT? LOGIN</Link>
               </Button2>
             </div>
           </form>

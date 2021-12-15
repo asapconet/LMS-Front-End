@@ -5,7 +5,6 @@ import { NavBar } from './navBar';
 export const Categories = () => {
     return (
       <div>
-        <NavBar />
         <div className="font-bold pt-5 text-4xl text-center">
           Select Level to view cources on in the DB
         </div>

@@ -15,7 +15,7 @@ export const ProtectedRoute = () => {
     const { isLoggedIn } = useContext(AuthContext);
 
     useEffect(() => {
-        !isLoggedIn && navigate("/user/login");
+        !isLoggedIn && navigate("/login");
     }, [isLoggedIn, navigate])
     // To do: Allow not found for unprotected routes
 

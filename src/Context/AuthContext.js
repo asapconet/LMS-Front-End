@@ -12,7 +12,7 @@ export const AuthContextProvider = (props) => {
 
   const logoutHandler = () => {
     localStorage.removeItem("refresh");
-    window.location.href = "/user/login";
+    window.location.href = "/login";
   };
 
   const contextValue = {

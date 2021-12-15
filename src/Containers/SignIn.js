@@ -131,7 +131,7 @@ export default function SignIn() {
                 <FaFacebook className="mx-2" />
               </span>
 
-              <Link to="/user/register">
+              <Link to="/register">
                 <Button2 className=" w-full">NO ACCOUNT? SIGNUP</Button2>
               </Link>
             </div>

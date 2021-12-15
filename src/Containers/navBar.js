@@ -15,7 +15,7 @@ export const NavBar = () => {
           <FaInfinity className="home-icon1" />
         </Link>
         <span className="mx-4 font-medium">
-          {isLoggedIn && <Link to="/courses">Blog</Link>}
+          {isLoggedIn && <Link to="/courses">Courses</Link>}
           <Link to="/about">About Us</Link>
         </span>
       </div>
@@ -28,7 +28,7 @@ export const NavBar = () => {
                 className="text-xl cursor-pointer"
                 onClick={() => setIsOpen(!isOpen)}
               />
-              {isOpen && <ul className="bg-white px-2 py-4 absolute rounded shadow-lg">
+              {isOpen && <ul className="bg-white px-2 py-4 absolute rounded shadow-lg flex flex-col gap-y-4">
                 <li>
                   <Link to="/user/courses" className="py-2">
                     My Courses
@@ -43,8 +43,8 @@ export const NavBar = () => {
             <li className="cursor-pointer" onClick={logout}>Log out</li>
           </>
           : <>
-            <li><Link to="/user/register">Register</Link></li>
-            <li><Link to="/user/login">Login</Link></li>
+            <li><Link to="/register">Register</Link></li>
+            <li><Link to="/login">Login</Link></li>
           </>}
       </ul>
     </nav>

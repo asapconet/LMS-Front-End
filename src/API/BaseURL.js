@@ -1,4 +1,4 @@
-const BaseURL = "https://lms-app-back-end.herokuapp.com/";
+export const BaseURL = "https://lms-app-back-end.herokuapp.com/";
 let BaseURL1 = "https://lms-app-back-end.herokuapp.com/auth/";
 let BaseURL2 = "https://lms-app-back-end.herokuapp.com/auth/users/";
 

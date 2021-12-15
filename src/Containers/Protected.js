@@ -22,7 +22,7 @@ export const ProtectedRoute = () => {
     return (
         <Routes>
             <Route path="/courses" element={<Blog />} />
-            <Route path="/courses/singlepost" element={<SinglePost />} />
+            <Route path="/courses/:slug/:uuid" element={<SinglePost />} />
             <Route path="/free" element={<BlogPagination />} />
             <Route path='/levels' element={<Categories />} />
             <Route path="/courses/create" element={<PostCreate />} />

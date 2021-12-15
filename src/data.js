@@ -6,7 +6,7 @@ const post = [
     image: postimg,
     desc: 'jabajantis common jabajanti abajanti common jabajantis common jabajanti common{" "}',
     name: "Piper",
-    title: "WWW 400",
+    title: "CSC 400",
     type: 400
   },
   {
@@ -14,7 +14,7 @@ const post = [
     image: postimg,
     desc: 'jabajantis common jabajanti abajanti common jabajantis common jabajanti common{" "}',
     name: "Janer",
-    title: "WWW 400",
+    title: "STA 400",
     type: 400
   },
   {
@@ -22,7 +22,7 @@ const post = [
     image: postimg,
     desc: 'jabajantis common jabajanti abajanti common jabajantis common jabajanti common{" "}',
     name: "Masgue",
-    title: "WWW 400",
+    title: "CSC 400",
     type: 400
   },
   {
@@ -30,7 +30,7 @@ const post = [
     image: postimg,
     desc: 'jabajantis common jabajanti abajanti common jabajantis common jabajanti common{" "}',
     name: "Syns",
-    title: "WWW 400",
+    title: "CSC 400",
     type: 400
   },
   {
@@ -38,7 +38,7 @@ const post = [
     image: postimg,
     desc: 'jabajantis common jabajanti abajanti common jabajantis common jabajanti common{" "}',
     name: "Piper",
-    title: "WWW 400",
+    title: "GST 400",
     type: 400
   },
 ];

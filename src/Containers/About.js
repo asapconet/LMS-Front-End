@@ -5,7 +5,6 @@ import { NavBar } from "./navBar";
 export const About = () => {
   return (
     <div>
-      <NavBar />
       <article className="px-72 ">
         <h1 className="font-bold text-3xl text-center my-9">
           This site was created for student use with love from...

@@ -8,6 +8,7 @@ import CommentCard from "../Components/CommentCard";
 import Comment from "../Components/Comment";
 import { NavBar } from "./navBar";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 const SinglePost = () => {
   return (
@@ -28,10 +29,14 @@ const SinglePost = () => {
                     work so hard to know, thank you.
                   </p>
                   <Button1>
-                    <div className=" btn-d flex items-center">
+                    <a
+                      href="download path"
+                      download="CSC 400"
+                      className=" btn-d flex animate-pulse items-center"
+                    >
                       DOWNLOAD MATERAILS FREE
                       <FaDownload className="ml-2" />
-                    </div>
+                    </a>
                   </Button1>
                 </div>
               </div>
@@ -52,8 +57,8 @@ const SinglePost = () => {
               the most comprehensive course materials are available in our
               database
             </p>
-            <Link to="/free">
-              <Button1 className="my-4">START FREE ACCESS</Button1>
+            <Link to="/levels">
+              <Button1 className="my-4">SELECT LEVEL MATERIAL</Button1>
             </Link>
           </div>
           <div className="bg-white text-left rounded p-1 text-black my-4">
@@ -69,13 +74,13 @@ const SinglePost = () => {
                     {desc}
                     <p className="text-right font-bold">by {name}</p>
                   </span>
-                  <span></span>
                 </div>
               );
             })}
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

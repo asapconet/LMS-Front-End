@@ -1,5 +1,5 @@
 body {
-  background-color: #a5a3a3;
+  /* background-color: #a5a3a3; */
 }
 
 h1 {
@@ -28,7 +28,18 @@ a {
 /* a:hover {
   background-color: #a5a3a3;
 } */
-
+.drop--items {
+display: none;
+}
+.drop:hover .drop--items {
+display: block;
+background: white;
+position: absolute;
+padding: .6rem;
+z-index: 1;
+width: 150%;
+text-align: left;
+}
 .btn1 {
   color: white !important;
   background-color: black;
@@ -48,13 +59,13 @@ a {
   justify-content: center;
   align-items: center;
   color: white;
-  padding: 16.85rem;
+  padding: 16.95rem;
 }
 .home-icon1 {
   font-size: xx-large;
 }
 .home-icon2 {
-display: none;
+  display: none;
 }
 
 /* END OF HOME STYLES */
@@ -62,13 +73,12 @@ display: none;
 /* FOOTER STYLES */
 .footer {
   bottom: 0;
-  position: fixed;
+  position: static;
 }
 
 /* END OF FOOTER STYLE */
 .pagination {
-
-  border-top: solid .05rem white;
+  border-top: solid 0.05rem white;
   padding-top: 2rem;
   margin: 5% 16% 4.5% 16%;
 }
@@ -76,8 +86,8 @@ display: none;
 .pagination ul li {
   padding: 0.4rem;
   background-color: white;
-  margin: .1rem;
-  border-radius: .4rem;
+  margin: 0.1rem;
+  border-radius: 0.4rem;
   cursor: pointer;
   font-weight: 500;
   font-size: small;
@@ -86,7 +96,7 @@ display: none;
 /* SINGLE POST VIEW STYLES */
 
 .post1 {
-padding: 2% 15% 2% 15%;
+  padding: 2% 15% 2% 15%;
 }
 
 .image-card p {
@@ -94,7 +104,7 @@ padding: 2% 15% 2% 15%;
 }
 
 .post-container {
-width: 95%;
+  width: 95%;
 }
 
 .side-sec p {
@@ -102,12 +112,16 @@ width: 95%;
 }
 
 .post-img img {
-width: 4.5rem;
-height: 4.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
 }
 
 .post-img span {
-  padding-left: .4rem;
+  padding-left: 0.4rem;
+}
+.arrow {
+  position: absolute;
+  top: 80%;
 }
 
 /* END OF SINGLEPOST STYLE */
@@ -127,12 +141,12 @@ height: 4.5rem;
   }
   .home-icon2 {
     display: block;
-  font-size: xx-large;
-}
+    font-size: xx-large;
+  }
 
   .home-btn {
-  font-size: medium;
-  padding: .2rem;
+    font-size: medium;
+    padding: 0.2rem;
   }
   .blog {
     padding: 5% 0 2% 0;
@@ -149,9 +163,9 @@ height: 4.5rem;
     flex-direction: column;
   }
   .post-container {
-width: 100%;
-}
-.btn-d {
-  font-size: small;
-}
+    width: 100%;
+  }
+  .btn-d {
+    font-size: small;
+  }
 }

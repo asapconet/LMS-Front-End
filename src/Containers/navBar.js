@@ -1,43 +1,52 @@
-import React, { useState } from "react";
-import "../App.css";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaInfinity } from "react-icons/fa";
+import { FaInfinity, FaUserTie } from "react-icons/fa";
+import "../App.css";
+import AuthContext from "../Context/AuthContext";
 
 export const NavBar = () => {
-  const [isLogged, setIsLogged] = useState(false);
-
-  const signoutHandler = () => {
-    setIsLogged(true);
-  };
+  const { isLoggedIn, logout } = useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav>
-      <div className="flex">
-        <FaInfinity className="home-icon1" />
-        {/* <img src="" alt="Our Brand" /> */}
+    <nav className="relative">
+      <div className="flex items-center">
+        <Link to="/">
+          <FaInfinity className="home-icon1" />
+        </Link>
         <span className="mx-4 font-medium">
-          <a href="/">Home</a>
-          <a href="sumn.com">About Us</a>
-          {!isLogged && (
-            <Link to="/posts">
-              Blog
-            </Link>
-          )}
+          {isLoggedIn && <Link to="/courses">Courses</Link>}
+          <Link to="/about">About Us</Link>
         </span>
       </div>
       <FaInfinity className="home-icon2" />
-      <div>
-        <ul className="flex font-medium">
-          <li>
-            <Link to="/user/login" className="mx-3">
-              {!isLogged ? "Login" : "Download Materials"}
-            </Link>
-          </li>
-          <li>
-            <Link to="/user/student_register" onClick={signoutHandler}>{isLogged ? 'Log out' : 'Sign up'}</Link>
-          </li>
-        </ul>
-      </div>
+      <ul className="flex gap-x-8 font-medium items-center">
+        {isLoggedIn
+          ? <>
+            <li className="">
+              <FaUserTie
+                className="text-xl cursor-pointer"
+                onClick={() => setIsOpen(!isOpen)}
+              />
+              {isOpen && <ul className="bg-white px-2 py-4 absolute rounded shadow-lg flex flex-col gap-y-4">
+                <li>
+                  <Link to="/user/courses" className="py-2">
+                    My Courses
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/user/profile">My Profile</Link>
+                </li>
+              </ul>
+              }
+            </li>
+            <li className="cursor-pointer" onClick={logout}>Log out</li>
+          </>
+          : <>
+            <li><Link to="/register">Register</Link></li>
+            <li><Link to="/login">Login</Link></li>
+          </>}
+      </ul>
     </nav>
   );
 };

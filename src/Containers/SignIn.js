@@ -1,8 +1,10 @@
-import React, { useState } from "react"; 
-import { Link } from "react-router-dom";
-import PropTypes from 'prop-types'
+import React, { useState, useRef, useContext, useEffect } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { Link, useNavigate } from "react-router-dom";
+import { client, headers } from "../API/requests";
+import PropTypes from "prop-types";
 
-// import Footer from "./Footer";
 import {
   FaUser,
   FaEnvelope,
@@ -12,49 +14,74 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import "../Styles/Pages/Registration.css";
-import { Button2, Button3 } from "../Components/button";
+import { Button2} from "../Components/button";
+// import { LoginUrl } from "../API/BaseURL";
+import AuthContext from "../Context/AuthContext";
+import { LoginUrl } from "../API/BaseURL";
 
+const schema = Yup.object().shape({
+  username: Yup.number().required("Matriculation number is required"),
+  password: Yup.string()
+});
 
-async function loginUser(credentials) {
-  return fetch("https://lms-app-back-end.herokuapp.com/auth/jwt/verify/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+export default function SignIn() {
+  const [errors, setErrors] = useState({});
+  const enteredMatricNumberRef = useRef();
+  const enteredPasswordRef = useRef();
+  const { isLoggedIn, login } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      password: "",
     },
-    body: JSON.stringify(credentials),
-  }).then((data) => data.json());
-}
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
+      setErrors({});
+      client.post(LoginUrl, values)
+        .then((res) => {
+          localStorage.setItem("refresh", res.data.refresh);
+          navigate("/");
+        })
+        .catch((err) => {
+          setErrors(err.response.data);
+          
+        })
+        .finally(() => {
+          setSubmitting(false);
+        });
 
 
-export default function SignIn ({ setToken }) {
-  const [enteredEmail, setEnteredEmail] = useState();
-  const [enteredPassword, setEnteredPassword] = useState();
-  // const [error, setError] = useState();
+    },
+    validationSchema: schema,
+  })
 
-  const signinHandler = async (event) => {
+  useEffect(() => {
+    isLoggedIn && navigate("/");
+  }, [isLoggedIn, navigate]);
+
+
+  const signinHandler = (event) => {
     event.preventDefault();
-    const token = await loginUser ({
-      enteredEmail,
-      enteredPassword
-    })
-    console.log('logss')
-    setToken(token)
-    // if (enteredEmail.trim().length !== 0 && enteredPassword) {
-    //   return console.log("welcome to our portal, your details are", {
-    //     username: enteredEmail,
-    //     password: enteredPassword,
-    //   });
-    // }
-    // setError({ name: "Invalid input", desc: "this thing I dont get" });
-    // return console.log(error);
-  };
 
-  const emailListener = (e) => {
-    setEnteredEmail(e.target.value);
+    const enteredMatricNumber = enteredMatricNumberRef.current.value;
+    const enteredPassword = enteredPasswordRef.current.value;
+    console.log(enteredMatricNumber)
+    // return;
+
+    try {
+      login(enteredMatricNumber, enteredPassword);
+
+      // alert(`user logged ${"your token is:" + loggedInUser.refresh}`);
+    } catch (error) {
+      console.log(error || "check credentials, you are not logged in");
+    }
   };
-  const passwordListener = (e) => {
-    setEnteredPassword(e.target.event);
-  };
+  //   .then((data) => {
+  // AuthCtx.loginHandler()
+  //   })
+  //   .catch
+
   return (
     <div className="signin-container">
       <div className="signup-student-form">
@@ -66,55 +93,51 @@ export default function SignIn ({ setToken }) {
 
           {/* PROFILE CREATION ENTRY FORM */}
 
-          <form className="p-5" onSubmit={signinHandler}>
-            <div className=" flex items-center form-control">
-              <label htmlFor="email"></label>
-              <FaEnvelope />
-              <input
-                id="email"
-                type="text"
-                value={enteredEmail}
-                onChange={emailListener}
-                placeholder="Your Email"
-              />
+          <form className="p-5" onSubmit={formik.handleSubmit} className="flex flex-col">
+            {errors.detail && (<p className="text-red-500 text-center">{errors.detail}</p>)}
+            <div>
+              <div className=" flex items-center form-control">
+                <label htmlFor="matricNumber"></label>
+                <FaEnvelope />
+                <input
+                  id="username"
+                  {...formik.getFieldProps("username")}
+                  />
+              </div>
+              {formik.touched.username && formik.errors.username ? (<p className="text-red-500 text-xs italic">{formik.errors.username}</p>) : null}
+              {errors.username && (<p className="text-red-500 text-xs italic">{errors.username}</p>)}
             </div>
-            <div className="flex items-center form-control">
-              <label htmlFor="password"></label>
-              <FaLock />
-              <input
-                id="password"
-                type="password"
-                value={enteredPassword}
-                onChange={passwordListener}
-                placeholder="Your Password"
-              />
+            <div>
+              <div className="flex items-center form-control">
+                <label htmlFor="password"></label>
+                <FaLock />
+                <input
+                  id="password"
+                  type="password"
+                  {...formik.getFieldProps("password")}
+                />
+              </div>
+              {formik.touched.password && formik.errors.password ? (<p className="text-red-500 text-xs italic">{formik.errors.password}</p>) : null}
+              {errors.password && (<p className="text-red-500 text-xs italic">{errors.password}</p>)}
             </div>
-
-            <Button3 className="my-4 text-center w-full" type="submit">
-              {" "}
-              SUBMIT
-            </Button3>
-            <div className="text-center">
+            {formik.isSubmitting && <p>Logging in user...</p>}
+            <input type="submit" value="Login" className="border-0 bg-black rounded-lg w-full px-8 py-2 my-8" />
+            
+          </form>
+          <div className="text-center">
               <span className="flex justify-center py-8 border-t ">
                 <FaInstagram className="mx-2" />
                 <FaTwitter className="mx-2" />
                 <FaFacebook className="mx-2" />
               </span>
 
-              <Link to="/user/student_register">
+              <Link to="/register">
                 <Button2 className=" w-full">NO ACCOUNT? SIGNUP</Button2>
               </Link>
             </div>
-          </form>
         </div>
       </div>
       {/* <Footer /> */}
     </div>
   );
-};
-
-
-
-SignIn.propTypes = {
-  setToken: PropTypes.func.isRequired
 }

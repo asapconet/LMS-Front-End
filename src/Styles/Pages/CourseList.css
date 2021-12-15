@@ -58,3 +58,9 @@
     padding: 0px 20px;
 }
 
+@media screen and (max-width: 600px) {
+    .levels {
+        display: flex;
+        flex-direction: column;
+    }
+}

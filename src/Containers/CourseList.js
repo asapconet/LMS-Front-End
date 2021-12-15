@@ -22,7 +22,7 @@ const CourseList = () => {
             <CourseComponent />
             <CourseComponent />
           </div>
-          <a href="/posts/create" className="flex justify-end my-5 px-5">
+          <a href="/courses/create" className="flex justify-end my-5 px-5">
             <Button1 className="hover:shadow-lg animate-pulse">
               Upload a course
             </Button1>

@@ -18,7 +18,7 @@ export const NavBar = () => {
         <span className="mx-4 font-medium">
           <a href="/">Home</a>
           <a href="/about">About Us</a>
-          {!isLogged && <Link to="/posts">Blog</Link>}
+          {!isLogged && <Link to="/courses">Blog</Link>}
         </span>
       </div>
       <FaInfinity className="home-icon2" />

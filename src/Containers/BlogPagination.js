@@ -35,7 +35,7 @@ const BlogPagination = () => {
                   a {type} level course
                 </p>
                 <div>
-                  <Link to="/posts/singlepost">
+                  <Link to="/courses/singlepost">
                     <Button1 className="btn1 mt-9" children="">
                       READ MORE
                     </Button1>

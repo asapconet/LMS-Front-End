@@ -5,13 +5,9 @@ import "../App.css";
 import AuthContext from "../Context/AuthContext";
 
 export const NavBar = () => {
-  const [isLogged, setIsLogged] = useState(false);
   const { isLoggedIn, logout } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
-  if (!setIsLogged) {
-    return true;
-  }
   return (
     <nav className="relative">
       <div className="flex items-center">
@@ -19,13 +15,13 @@ export const NavBar = () => {
           <FaInfinity className="home-icon1" />
         </Link>
         <span className="mx-4 font-medium">
-          {!isLogged && <Link to="/courses">Blog</Link>}
+          {isLoggedIn && <Link to="/courses">Blog</Link>}
           <Link to="/about">About Us</Link>
         </span>
       </div>
       <FaInfinity className="home-icon2" />
       <ul className="flex gap-x-8 font-medium items-center">
-        {isLoggedIn()
+        {isLoggedIn
           ? <>
             <li className="">
               <FaUserTie

@@ -57,7 +57,7 @@ export default function SignIn() {
   })
 
   useEffect(() => {
-    isLoggedIn() && navigate("/");
+    isLoggedIn && navigate("/");
   }, [isLoggedIn, navigate]);
 
 

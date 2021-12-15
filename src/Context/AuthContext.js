@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const AuthContext = React.createContext({
   isLoggedIn: "",
@@ -7,9 +7,8 @@ const AuthContext = React.createContext({
 });
 
 export const AuthContextProvider = (props) => {
-  const isLoggedIn = () => {
-    return Boolean(localStorage.getItem("refresh"));
-  }
+  const location = useLocation();
+  const [isLoggedIn, setIsLoggedIn] = React.useState(Boolean(localStorage.getItem("refresh")));
 
   const logoutHandler = () => {
     localStorage.removeItem("refresh");
@@ -20,6 +19,10 @@ export const AuthContextProvider = (props) => {
     isLoggedIn,
     logout: logoutHandler,
   };
+
+  useEffect(() => {
+    setIsLoggedIn(Boolean(localStorage.getItem("refresh")));
+  }, [location]);
 
   return (
     <AuthContext.Provider value={contextValue}>

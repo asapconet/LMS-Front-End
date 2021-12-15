@@ -6,8 +6,6 @@ import Blog from "./Blog";
 import BlogPagination from "./BlogPagination";
 import { Categories } from "./Categories";
 import CourseList from "./CourseList";
-import Home from "./Home";
-import { NavBar } from "./navBar";
 import { Error } from "./NotFound";
 import PostCreate from "./PostCreate";
 import SinglePost from "./SinglePost";
@@ -17,7 +15,7 @@ export const ProtectedRoute = () => {
     const { isLoggedIn } = useContext(AuthContext);
 
     useEffect(() => {
-        !isLoggedIn() && navigate("/user/login");
+        !isLoggedIn && navigate("/user/login");
     }, [isLoggedIn, navigate])
 
     return (

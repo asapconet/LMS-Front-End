@@ -2,6 +2,7 @@ import React from "react";
 import Button1 from "../Components/button";
 import { FaHome } from "react-icons/fa";
 import CourseComponent from "../Components/CoursesComponent";
+import { Link } from "react-router-dom";
 
 const CourseList = () => {
   return (
@@ -11,9 +12,9 @@ const CourseList = () => {
           <h1 className="font-medium uppercase text-center">
             Choose your disired course below
           </h1>
-          <a href="/">
+          <Link to="/">
             <FaHome />
-          </a>
+          </Link>
         </div>
         <div className="course-section">
           <div className="border-b px-3">
@@ -22,11 +23,11 @@ const CourseList = () => {
             <CourseComponent />
             <CourseComponent />
           </div>
-          <a href="/courses/create" className="flex justify-end my-5 px-5">
+          <Link to="/courses/create" className="flex justify-end my-5 px-5">
             <Button1 className="hover:shadow-lg animate-pulse">
               Upload a course
             </Button1>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

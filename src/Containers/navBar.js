@@ -7,47 +7,50 @@ import AuthContext from "../Context/AuthContext";
 export const NavBar = () => {
   const [isLogged, setIsLogged] = useState(false);
   const { isLoggedIn, logout } = useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(false);
 
   if (!setIsLogged) {
     return true;
   }
   return (
-    <nav>
-      <div className="flex">
-        <FaInfinity className="home-icon1" />
+    <nav className="relative">
+      <div className="flex items-center">
+        <Link to="/">
+          <FaInfinity className="home-icon1" />
+        </Link>
         <span className="mx-4 font-medium">
-          <a href="/">Home</a>
-          <a href="/about">About Us</a>
           {!isLogged && <Link to="/courses">Blog</Link>}
+          <Link to="/about">About Us</Link>
         </span>
       </div>
       <FaInfinity className="home-icon2" />
-      <div>
-        <ul className="flex font-medium items-center">
-          <li>
-            <Link to="/user/login">
-              {!isLoggedIn() ? (
-                "Login"
-              ) : (
-                <div className=" drop inline-block w-20 text-center relative">
-                  <span>ME</span>
-                  <div className="drop--items rounded shadow-lg capitalize">
-                    <p href="/courelist" className="py-2">
-                      My Courses
-                    </p>
-                    <p href="#.">my profile</p>
-                  </div>
-                </div>
-              )}
-            </Link>
-          </li>
-          <li className="mx-4">
-            <Link to="/user/student_register" onClick={logout}>
-              {isLoggedIn() ? "Log out" : "Sign up"}
-            </Link>
-          </li>
-        </ul>
-      </div>
+      <ul className="flex gap-x-8 font-medium items-center">
+        {isLoggedIn()
+          ? <>
+            <li className="">
+              <FaUserTie
+                className="text-xl cursor-pointer"
+                onClick={() => setIsOpen(!isOpen)}
+              />
+              {isOpen && <ul className="bg-white px-2 py-4 absolute rounded shadow-lg">
+                <li>
+                  <Link to="/user/courses" className="py-2">
+                    My Courses
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/user/profile">My Profile</Link>
+                </li>
+              </ul>
+              }
+            </li>
+            <li className="cursor-pointer" onClick={logout}>Log out</li>
+          </>
+          : <>
+            <li><Link to="/user/register">Register</Link></li>
+            <li><Link to="/user/login">Login</Link></li>
+          </>}
+      </ul>
     </nav>
   );
 };

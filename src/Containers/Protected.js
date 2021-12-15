@@ -17,6 +17,7 @@ export const ProtectedRoute = () => {
     useEffect(() => {
         !isLoggedIn && navigate("/user/login");
     }, [isLoggedIn, navigate])
+    // To do: Allow not found for unprotected routes
 
     return (
         <Routes>

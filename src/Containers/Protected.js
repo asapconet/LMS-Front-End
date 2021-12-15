@@ -8,6 +8,7 @@ import { Categories } from "./Categories";
 import CourseList from "./CourseList";
 import { Error } from "./NotFound";
 import PostCreate from "./PostCreate";
+import { Profile } from "./Profile";
 import SinglePost from "./SinglePost";
 
 export const ProtectedRoute = () => {
@@ -28,6 +29,7 @@ export const ProtectedRoute = () => {
             <Route path="/courses/create" element={<PostCreate />} />
             <Route path="/about" element={<About />} />
             <Route path="/user/courses" element={<CourseList />} />
+            <Route path='/user/me' element={<Profile/>} />
             <Route path="*" element={<Error code={404} message="Not Found" />} />
         </Routes>
     )

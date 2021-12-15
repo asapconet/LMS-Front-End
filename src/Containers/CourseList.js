@@ -5,12 +5,14 @@ import CourseComponent from "../Components/CoursesComponent";
 import { Link } from "react-router-dom";
 
 const CourseList = () => {
+
+  
   return (
     <div className="courses-container">
       <div className="available-courses">
         <div className="header-text flex justify-between">
           <h1 className="font-medium uppercase text-center">
-            Choose your disired course below
+            below are courses uploaded by you
           </h1>
           <Link to="/">
             <FaHome />

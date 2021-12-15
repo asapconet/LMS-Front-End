@@ -2,6 +2,8 @@ import React from "react";
 import { FaDownload } from "react-icons/fa";
 
 const Courses = () => {
+
+  
   return (
     <div className="course-item flex justify-between bg-black text-white rounded m-2">
       <div className="font-bold text-lg p-2 m-1 uppercase">

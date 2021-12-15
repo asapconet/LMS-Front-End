@@ -19,7 +19,9 @@ export const NavBar = () => {
           <Link to="/about">About Us</Link>
         </span>
       </div>
-      <FaInfinity className="home-icon2" />
+      <Link to="/">
+        <FaInfinity className="home-icon2" />
+      </Link>
       <ul className="flex gap-x-8 font-medium items-center">
         {isLoggedIn ? (
           <>
@@ -40,7 +42,7 @@ export const NavBar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/user/profile" onClick={() => setIsOpen(false)}>
+                    <Link to="/user/me" onClick={() => setIsOpen(false)}>
                       My Profile
                     </Link>
                   </li>

@@ -26,9 +26,7 @@ const schema = Yup.object().shape({
 
 export default function SignIn() {
   const [errors, setErrors] = useState({});
-  const enteredMatricNumberRef = useRef();
-  const enteredPasswordRef = useRef();
-  const { isLoggedIn, login } = useContext(AuthContext);
+  const { isLoggedIn} = useContext(AuthContext);
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -60,27 +58,6 @@ export default function SignIn() {
     isLoggedIn && navigate("/");
   }, [isLoggedIn, navigate]);
 
-
-  const signinHandler = (event) => {
-    event.preventDefault();
-
-    const enteredMatricNumber = enteredMatricNumberRef.current.value;
-    const enteredPassword = enteredPasswordRef.current.value;
-    console.log(enteredMatricNumber)
-    // return;
-
-    try {
-      login(enteredMatricNumber, enteredPassword);
-
-      // alert(`user logged ${"your token is:" + loggedInUser.refresh}`);
-    } catch (error) {
-      console.log(error || "check credentials, you are not logged in");
-    }
-  };
-  //   .then((data) => {
-  // AuthCtx.loginHandler()
-  //   })
-  //   .catch
 
   return (
     <div className="signin-container">

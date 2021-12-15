@@ -6,15 +6,13 @@ import post from "../data";
 import AboutCard from "../Components/AboutCard";
 import CommentCard from "../Components/CommentCard";
 import Comment from "../Components/Comment";
-import { NavBar } from "./navBar";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 
 const SinglePost = () => {
   return (
     <>
-      <NavBar />
-      <section className=" post1 flex ">
+      <section className=" post1 flex bg-black ">
         <div className=" text-center text-white ">
           <div>
             <div className=" mb-4 post-container flex justify-center flex-col">

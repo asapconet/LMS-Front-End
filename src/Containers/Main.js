@@ -8,10 +8,9 @@ import SignIn from "./SignIn";
 import { ProtectedRoute } from "./Protected";
 
 const Main = () => {
-
   return (
     <>
-    <NavBar />
+      <NavBar />
       <Routes>
         <Route index element={<Home />} />
         <Route path="/login" element={<SignIn />} />

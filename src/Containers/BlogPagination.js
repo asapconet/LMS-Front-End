@@ -6,7 +6,7 @@ import { Loading } from "../Components/Loading";
 import { useLoadItem } from "../utils/useLoadItem";
 
 
-const BlogItem = ({ posted_by, level, uuid, created, last_updated, cover, title, content, description, slug }) => {
+export const BlogItem = ({ posted_by, level, uuid, created, last_updated, cover, title, content, description, slug }) => {
   const created_date = new Date(created).toDateString();
   const last_updated_date = new Date(last_updated).toDateString();
 

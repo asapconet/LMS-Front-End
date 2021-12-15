@@ -1,7 +1,7 @@
+import loader from '../assets/loader.svg';
+
 export const Loading = () => {
   return (
-    <div>
-      <h1>Loading Content...</h1>
-    </div>
+    <img src={loader} className="mx-auto" />
   );
 };

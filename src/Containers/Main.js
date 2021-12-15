@@ -10,20 +10,15 @@ import { ProtectedRoute } from "./Protected";
 const Main = () => {
 
   return (
-    <Routes>
-      <Route
-          index
-          element={
-              <>
-                  <NavBar />
-                  <Home />
-              </>
-          }
-      />
-      <Route path="/user/login" element={<SignIn />} />
-      <Route path="/user/register" element={<Registration />} />
-      <Route path="*" element={<ProtectedRoute />}/>
-    </Routes>
+    <>
+    <NavBar />
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/user/login" element={<SignIn />} />
+        <Route path="/user/register" element={<Registration />} />
+        <Route path="*" element={<ProtectedRoute />}/>
+      </Routes>
+    </>
   );
 };
 

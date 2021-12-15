@@ -24,14 +24,26 @@ export const NavBar = () => {
       <FaInfinity className="home-icon2" />
       <div>
         <ul className="flex font-medium items-center">
+          <li>
+            <Link to="/user/login">
+              {!isLoggedIn() ? (
+                "Login"
+              ) : (
+                <div className=" drop inline-block w-20 text-center relative">
+                  <span>ME</span>
+                  <div className="drop--items rounded shadow-lg capitalize">
+                    <p href="/courelist" className="py-2">
+                      My Courses
+                    </p>
+                    <p href="#.">my profile</p>
+                  </div>
+                </div>
+              )}
+            </Link>
+          </li>
           <li className="mx-4">
             <Link to="/user/student_register" onClick={logout}>
               {isLoggedIn() ? "Log out" : "Sign up"}
-            </Link>
-          </li>
-          <li>
-            <Link to="/user/login">
-              {!isLoggedIn() ? "Login" : <FaUserTie />}
             </Link>
           </li>
         </ul>

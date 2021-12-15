@@ -28,7 +28,18 @@ a {
 /* a:hover {
   background-color: #a5a3a3;
 } */
-
+.drop--items {
+display: none;
+}
+.drop:hover .drop--items {
+display: block;
+background: white;
+position: absolute;
+padding: .6rem;
+z-index: 1;
+width: 150%;
+text-align: left;
+}
 .btn1 {
   color: white !important;
   background-color: black;

@@ -21,18 +21,9 @@ export const BlogItem = ({
   const last_updated_date = new Date(last_updated).toDateString();
 
   return (
-    <Link
-      to={`/${slug}/${uuid}`}
-      className="relative bg-white shadow-lg rounded"
-    >
-      <img
-        src={cover && defaultPost}
-        alt=""
-        className="w-full h-64 object-cover rounded"
-      />
-      <span className="absolute top-4 left-4 px-4 py-1 bg-blue-500 text-white text-xs font-bold">
-        {level}
-      </span>
+    <Link to={`/courses/${slug}/${uuid}`} className="relative bg-white shadow-lg rounded">
+      <img src={cover && defaultPost} alt="" className="w-full h-64 object-cover rounded" />
+      <span className="absolute top-4 left-4 px-4 py-1 bg-blue-500 text-white text-xs font-bold">{level}</span>
       <div className="flex justify-between text-gray-400 my-2">
         <p className="text-sm">Posted by: {posted_by}</p>
         <p className="text-sm">Updated: {last_updated_date}</p>

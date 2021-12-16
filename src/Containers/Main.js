@@ -14,6 +14,7 @@ const Main = () => {
       <Routes>
         <Route index element={<Home />} />
         <Route path="/login" element={<SignIn />} />
+        {/* <Route path="/blog" element={<Blog/>}/> */}
         <Route path="/register" element={<Registration />} />
         <Route path="*" element={<ProtectedRoute />} />
       </Routes>

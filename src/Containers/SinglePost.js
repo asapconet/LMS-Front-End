@@ -1,35 +1,75 @@
-import React from "react";
+import React, { useState, useEffect,useCallback} from "react";
+// import axios from "axios";
 import Button1 from "../Components/button";
 import { FaDownload } from "react-icons/fa";
-import lebron from "../assets/lebron.JPG";
+// import lebron from "../assets/lebron.JPG";
 import post from "../data";
 import AboutCard from "../Components/AboutCard";
 import CommentCard from "../Components/CommentCard";
 import Comment from "../Components/Comment";
-import { Link } from "react-router-dom";
+// import { NavBar } from "./navBar";
+import { Link, useParams } from "react-router-dom";
 import Footer from "./Footer";
+// import { BaseURL } from "../API/BaseURL";
+import { client } from "../API/requests";
 
 const SinglePost = () => {
+  const { uuid } = useParams()
+  const [data, setData] = useState({})
+  // const [otherArticles, setOtherArticles] = useState({})
+  let url = `resources/${uuid}/`
+
+  console.log(url)
+  const getSinglePostData = useCallback(() => {
+    client.get(url, {
+      params: {
+        uuid: uuid
+      }
+    })
+      .then(res => {
+        setData(res.data)
+      })
+      .catch()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [url, uuid])
+  // let url1 = `resources/`
+  const getFeaturedPost = useCallback(() => {
+    client.get(url, {
+      params: {
+        uuid: uuid
+      }
+    })
+      .then(res => {
+        setData(res.data)
+      })
+      .catch()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [url, uuid])
+  useEffect(() => {
+    getSinglePostData()
+    getFeaturedPost()
+  }, [getFeaturedPost, getSinglePostData])
+ 
+  console.log(data)
   return (
     <>
-      <section className=" post1 flex bg-black ">
+      <section className=" post1 flex ">
         <div className=" text-center text-white ">
           <div>
             <div className=" mb-4 post-container flex justify-center flex-col">
               <div className="">
-                <img src={lebron} alt={"pic of course"} />
+                <img src={data.content} alt={"pic of course"} />
               </div>
               <div className="image-card bg-black flex shadow justify-center flex-col p-9 mt-4">
                 <div>
-                  <h1>Computer Courses</h1>
+                  <h1>{`${data.title} Material`}</h1>
                   <p>
-                    something about this life that you have zero idea about you
-                    work so hard to know, thank you.
+                    {data.description}.
                   </p>
                   <Button1>
                     <a
-                      href="download path"
-                      download="CSC 400"
+                      href={data.content}
+                      download={data.title}
                       className=" btn-d flex animate-pulse items-center"
                     >
                       DOWNLOAD MATERAILS FREE

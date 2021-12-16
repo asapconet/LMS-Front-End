@@ -8,7 +8,7 @@ let BASEUSER = "https://lms-app-back-end.herokuapp.com/auth/users/me/";
 // AUTHENTICATION URL
 export const LoginUrl = `${BaseURL1}jwt/create/`;
 export const RecoveryURL = `${BaseURL1}jwt/refresh/`;
-export const VerifyLoginUrl = `${BaseURL1}jwt/verify/`;
+export const VerifyLoginUrl = `/jwt/verify/`;
 export const RegistrationUrl = BaseURL2;
 
 // OTHER URLs

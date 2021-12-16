@@ -26,7 +26,7 @@ const schema = Yup.object().shape({
 
 export default function SignIn() {
   const [errors, setErrors] = useState({});
-  const { isLoggedIn} = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -39,6 +39,7 @@ export default function SignIn() {
       client.post(LoginUrl, values)
         .then((res) => {
           localStorage.setItem("refresh", res.data.refresh);
+          localStorage.setItem("access", res.data.access);
           navigate("/");
         })
         .catch((err) => {

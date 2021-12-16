@@ -1,7 +1,8 @@
-import React, { useState, useEffect,useCallback} from "react";
+import React, { useState, useEffect, useCallback } from "react";
 // import axios from "axios";
 import Button1 from "../Components/button";
 import { FaDownload } from "react-icons/fa";
+import defaultPost from "../assets/postimg.JPG";
 // import lebron from "../assets/lebron.JPG";
 import post from "../data";
 import AboutCard from "../Components/AboutCard";
@@ -12,16 +13,15 @@ import { Link, useParams } from "react-router-dom";
 import Footer from "./Footer";
 // import { BaseURL } from "../API/BaseURL";
 import { client } from "../API/requests";
+import { ResourceURL } from "../API/BaseURL";
 
 const SinglePost = () => {
   const { uuid } = useParams()
   const [data, setData] = useState({})
-  // const [otherArticles, setOtherArticles] = useState({})
-  let url = `resources/${uuid}/`
+  const [otherArticles, setOtherArticles] = useState([])
 
-  console.log(url)
   const getSinglePostData = useCallback(() => {
-    client.get(url, {
+    client.get(`${ResourceURL}${uuid}`, {
       params: {
         uuid: uuid
       }
@@ -30,26 +30,30 @@ const SinglePost = () => {
         setData(res.data)
       })
       .catch()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [url, uuid])
-  // let url1 = `resources/`
+  }, [uuid])
+
   const getFeaturedPost = useCallback(() => {
-    client.get(url, {
+    client.get(`${ResourceURL}?level=${data.level}`, {
       params: {
         uuid: uuid
       }
     })
       .then(res => {
-        setData(res.data)
+        setOtherArticles([
+          ...res.data.results
+        ])
       })
       .catch()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [url, uuid])
+  }, [data])
+
   useEffect(() => {
     getSinglePostData()
-    getFeaturedPost()
-  }, [getFeaturedPost, getSinglePostData])
- 
+  }, [getSinglePostData])
+
+  useEffect(() => {
+    data && getFeaturedPost()
+  }, [data, getFeaturedPost])
+
   console.log(data)
   return (
     <>
@@ -58,7 +62,7 @@ const SinglePost = () => {
           <div>
             <div className=" mb-4 post-container flex justify-center flex-col">
               <div className="">
-                <img src={data.content} alt={"pic of course"} />
+                <img src={data.cover && defaultPost} alt={"pic of course"} />
               </div>
               <div className="image-card bg-black flex shadow justify-center flex-col p-9 mt-4">
                 <div>
@@ -78,9 +82,9 @@ const SinglePost = () => {
                   </Button1>
                 </div>
               </div>
-              <AboutCard />
+              {/* <AboutCard />
               <CommentCard />
-              <Comment />
+              <Comment /> */}
               <div></div>
             </div>
           </div>
@@ -103,15 +107,15 @@ const SinglePost = () => {
             <div className="border-b">
               <h3 className="font-medium py-1">Related Articles</h3>
             </div>
-            {post.map((e) => {
-              const { id, image, name, desc } = e;
+            {otherArticles && otherArticles.map((course) => {
               return (
-                <div key={id} className="flex p-1 text-xs font-medium post-img">
-                  <img src={image} alt={name} />
-                  <span>
-                    {desc}
-                    <p className="text-right font-bold">by {name}</p>
-                  </span>
+                <div key={course.uuid} className="flex gap-x-4">
+                  <div className="flex flex-col justify-start">
+                    <Link 
+                      to={`/courses/${course.slug}/${course.uuid}/`}
+                    >
+                      {course.title}</Link>
+                  </div>
                 </div>
               );
             })}

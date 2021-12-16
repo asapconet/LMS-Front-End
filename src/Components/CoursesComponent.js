@@ -5,6 +5,7 @@ import { client } from "../API/requests";
 
 const Courses = ({ posted_by, level, uuid, created, last_updated, cover, title, content, description, slug }) => {
   const navigate = useNavigate();
+  console.log(uuid)
   const handleDelete = () => {
     console.log("delete");
     client.defaults.headers.common["Authorization"] = `JWT ${localStorage.getItem("access")}`;

@@ -1,4 +1,4 @@
-export const BaseURL = "http://localhost:8000/";
+export const BaseURL = "https://lms-app-back-end.herokuapp.com/";
 let MotherURL = `${BaseURL}resources/`;
 let BaseURL1 = `${BaseURL}auth/`
 let BaseURL2 = `${BaseURL}auth/users/`;

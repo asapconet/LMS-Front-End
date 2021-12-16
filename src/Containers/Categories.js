@@ -8,7 +8,7 @@ export const Categories = () => {
 
   const getLevels = () => {
     axios.get(LevelUrl).then((res) => {
-      console.log(res.data.results);
+
       let levels = res.data.results;
       setLevels(levels);
     });

@@ -21,9 +21,6 @@ const CourseList = () => {
         <div className="course-section">
           <div className="border-b px-3">
             <CourseComponent />
-            <CourseComponent />
-            <CourseComponent />
-            <CourseComponent />
           </div>
           <Link to="/courses/create" className="flex justify-end my-5 px-5">
             <Button1 className="hover:shadow-lg animate-pulse">

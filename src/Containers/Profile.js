@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import {
-  DeleteProfileURL,
+  // DeleteProfileURL,
   editProfileURL,
   showProfileURL,
 } from "../API/BaseURL";

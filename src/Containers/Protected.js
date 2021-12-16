@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { Route, Routes, useNavigate, useRoutes } from "react-router-dom";
+import { Route, Routes, useNavigate} from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
 import { About } from "./About";
 import Blog from "./Blog";
@@ -29,7 +29,7 @@ export const ProtectedRoute = () => {
             <Route path="/courses/create" element={<PostCreate />} />
             <Route path="/about" element={<About />} />
             <Route path="/user/courses" element={<CourseList />} />
-            <Route path='/user/me' element={<Profile/>} />
+            <Route path='/user/me/' element={<Profile/>} />
             <Route path="*" element={<Error code={404} message="Not Found" />} />
         </Routes>
     )

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LoginUrl, VerifyLoginUrl } from "./BaseURL";
+import {  VerifyLoginUrl } from "./BaseURL";
 
 export const client = axios.create({
   baseURL: "https://lms-app-back-end.herokuapp.com"

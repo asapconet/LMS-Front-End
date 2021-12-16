@@ -1,9 +1,9 @@
-import React, { useState, useRef, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
-import { client, headers } from "../API/requests";
-import PropTypes from "prop-types";
+import { client } from "../API/requests";
+
 
 import {
   FaUser,
@@ -70,19 +70,24 @@ export default function SignIn() {
 
           {/* PROFILE CREATION ENTRY FORM */}
 
-          <form className="p-5" onSubmit={formik.handleSubmit} className="flex flex-col">
-            {errors.detail && (<p className="text-red-500 text-center">{errors.detail}</p>)}
+          <form onSubmit={formik.handleSubmit} className="flex p-5 flex-col">
+            {errors.detail && (
+              <p className="text-red-500 text-center">{errors.detail}</p>
+            )}
             <div>
               <div className=" flex items-center form-control">
                 <label htmlFor="matricNumber"></label>
                 <FaEnvelope />
-                <input
-                  id="username"
-                  {...formik.getFieldProps("username")}
-                  />
+                <input id="username" {...formik.getFieldProps("username")} />
               </div>
-              {formik.touched.username && formik.errors.username ? (<p className="text-red-500 text-xs italic">{formik.errors.username}</p>) : null}
-              {errors.username && (<p className="text-red-500 text-xs italic">{errors.username}</p>)}
+              {formik.touched.username && formik.errors.username ? (
+                <p className="text-red-500 text-xs italic">
+                  {formik.errors.username}
+                </p>
+              ) : null}
+              {errors.username && (
+                <p className="text-red-500 text-xs italic">{errors.username}</p>
+              )}
             </div>
             <div>
               <div className="flex items-center form-control">
@@ -94,24 +99,33 @@ export default function SignIn() {
                   {...formik.getFieldProps("password")}
                 />
               </div>
-              {formik.touched.password && formik.errors.password ? (<p className="text-red-500 text-xs italic">{formik.errors.password}</p>) : null}
-              {errors.password && (<p className="text-red-500 text-xs italic">{errors.password}</p>)}
+              {formik.touched.password && formik.errors.password ? (
+                <p className="text-red-500 text-xs italic">
+                  {formik.errors.password}
+                </p>
+              ) : null}
+              {errors.password && (
+                <p className="text-red-500 text-xs italic">{errors.password}</p>
+              )}
             </div>
             {formik.isSubmitting && <p>Logging in user...</p>}
-            <input type="submit" value="Login" className="border-0 bg-black rounded-lg w-full px-8 py-2 my-8" />
-            
+            <input
+              type="submit"
+              value="Login"
+              className="border-0 bg-black rounded-lg w-full px-8 py-2 my-8"
+            />
           </form>
           <div className="text-center">
-              <span className="flex justify-center py-8 border-t ">
-                <FaInstagram className="mx-2" />
-                <FaTwitter className="mx-2" />
-                <FaFacebook className="mx-2" />
-              </span>
+            <span className="flex justify-center py-8 border-t ">
+              <FaInstagram className="mx-2" />
+              <FaTwitter className="mx-2" />
+              <FaFacebook className="mx-2" />
+            </span>
 
-              <Link to="/register">
-                <Button2 className=" w-full">NO ACCOUNT? SIGNUP</Button2>
-              </Link>
-            </div>
+            <Link to="/register">
+              <Button2 className=" w-full">NO ACCOUNT? SIGNUP</Button2>
+            </Link>
+          </div>
         </div>
       </div>
       {/* <Footer /> */}

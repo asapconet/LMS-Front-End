@@ -17,7 +17,7 @@ export const BlogItem = ({
   description,
   slug,
 }) => {
-  const created_date = new Date(created).toDateString();
+  // const created_date = new Date(created).toDateString();
   const last_updated_date = new Date(last_updated).toDateString();
 
   return (

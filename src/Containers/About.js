@@ -1,6 +1,5 @@
 import React from "react";
 import { about } from "../data";
-import { NavBar } from "./navBar";
 
 export const About = () => {
   return (

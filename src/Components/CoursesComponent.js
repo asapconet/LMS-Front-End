@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { FaDownload } from "react-icons/fa";
 import axios from "axios";
 import { GetMyCoursesURL } from "../API/BaseURL";
-import { data } from "autoprefixer";
 
 const Courses = () => {
   const [courses, setCourse] = useState([]);

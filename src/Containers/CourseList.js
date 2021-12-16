@@ -10,7 +10,7 @@ import AuthContext from "../Context/AuthContext";
 const CourseList = () => {
   const { user } = useContext(AuthContext)
   const username = user.username
-  const { loading, state, refetch } = useLoadItem(`${ResourceURL}?user=${username}`);
+  const { loading, state, refetch } = useLoadItem(`${ResourceURL}?username=${username}`);
   return (
     <div className="courses-container">
       <div className="available-courses">

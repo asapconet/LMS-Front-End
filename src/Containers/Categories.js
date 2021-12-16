@@ -14,7 +14,7 @@ export const Categories = () => {
       <div className="font-bold pt-5 text-4xl text-center">
         Select Level to view cources on in the DB
       </div>
-      <div className="levels grid grid-cols-2 p-9 ">
+      <div className="levels grid grid-cols-1 md:grid-cols-2 p-9 ">
         {state?.posts?.map((level) => {
           return (
             <Link

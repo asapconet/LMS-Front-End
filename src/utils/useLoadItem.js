@@ -30,7 +30,7 @@ export const useLoadItem = (url) => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [state]);
 
   useEffect(() => {
     fetchBlogPosts();

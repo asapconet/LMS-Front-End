@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { FaDownload } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { client } from "../API/requests";
@@ -21,7 +21,7 @@ const Courses = ({ posted_by, level, uuid, created, last_updated, cover, title, 
       })
   };
   return (
-    <div className="course-item flex justify-between bg-black text-white rounded m-2">
+    <div className="course-item grid grid-cols-4 justify-between bg-black text-white rounded m-2">
       <div className="font-bold text-lg p-2 m-1 uppercase">
         <p>{title}</p>
       </div>
@@ -37,11 +37,9 @@ const Courses = ({ posted_by, level, uuid, created, last_updated, cover, title, 
           Delete
         </button>
       </div>
-      <div className="rounded-full p-1 h-9 text-sm m-1 font-bold bg-gray-600">
         <a href={content} download='picture' className="flex items-center">
             <FaDownload/>
         </a>
-      </div>
     </div>
   );
 };

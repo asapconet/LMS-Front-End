@@ -1,11 +1,4 @@
-import React, { useContext, useEffect } from "react";
-import axios from "axios";
-import {
-  // DeleteProfileURL,
-  editProfileURL,
-  showProfileURL,
-} from "../API/BaseURL";
-import Button1, { Button3 } from "../Components/button";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
 
@@ -31,7 +24,7 @@ export const Profile = () => {
             <p className="col-span-3">{user.uuid}</p>
           </div>
         </div>
-        <Link className="bg-blue-500 rounded-lg py-2 px-8 shadow text-white text-center" to="/user/courses">
+        <Link className="bg-black rounded-lg py-2 px-8 shadow text-white text-center" to="/user/courses">
           My Courses
         </Link>
       </div>

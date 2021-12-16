@@ -6,13 +6,12 @@ import { Loading } from "../Components/Loading";
 import { useLoadItem } from "../utils/useLoadItem";
 
 
-export const BlogItem = ({ posted_by, level, uuid, created, last_updated, cover, title, content, description, slug }) => {
-  const created_date = new Date(created).toDateString();
+export const BlogItem = ({ posted_by, level, uuid, last_updated, cover, title, description, slug }) => {
   const last_updated_date = new Date(last_updated).toDateString();
 
   return (
-    <Link to={`/${slug}/${uuid}`} className="relative bg-white shadow-lg rounded">
-      <img src={cover && defaultPost} alt="" className="w-full h-64 object-cover rounded" />
+    <Link to={`/courses/${slug}/${uuid}`} className="relative bg-white shadow-lg rounded px-0 pt-0 pb-4">
+      <img src={cover || defaultPost} alt="" className="w-full h-64 object-cover rounded" />
       <span className="absolute top-4 left-4 px-4 py-1 bg-blue-500 text-white text-xs font-bold">{level}</span>
       <div className="flex justify-between text-gray-400 my-2">
         <p className="text-sm">Posted by: {posted_by}</p>
@@ -35,7 +34,7 @@ export const BlogListing = ({ posts }) => {
           />
         ))}
       </div>
-      : <h1 className="mx-auto text-center">No posts to load</h1>
+      : <h1 className="mx-auto text-black text-center">No posts to load</h1>
   );
 }
 

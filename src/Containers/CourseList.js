@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import Button1 from "../Components/button";
-import { FaHome } from "react-icons/fa";
 import CourseComponent from "../Components/CoursesComponent";
 import { Link } from "react-router-dom";
 import { useLoadItem } from "../utils/useLoadItem";
@@ -15,14 +14,9 @@ const CourseList = () => {
   return (
     <div className="courses-container">
       <div className="available-courses">
-        <div className="header-text flex justify-between">
-          <h1 className="font-medium uppercase text-center">
+          <h1 className="px-4 font-medium uppercase text-center">
             below are courses uploaded by you
           </h1>
-          <Link to="/">
-            <FaHome />
-          </Link>
-        </div>
         <div className="course-section">
           <div className="border-b px-3">
             {state?.posts?.map((course) => (

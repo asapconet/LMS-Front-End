@@ -1,9 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Route, Routes, useNavigate} from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
-import { About } from "./About";
 import Blog from "./Blog";
-import BlogPagination from "./BlogPagination";
 import { Categories } from "./Categories";
 import CourseList from "./CourseList";
 import { LevelPagination } from "./LevelsCourses";
@@ -25,11 +23,9 @@ export const ProtectedRoute = () => {
         <Routes>
             <Route path="/courses" element={<Blog />} />
             <Route path="/courses/:slug/:uuid" element={<SinglePost />} />
-            <Route path="/free" element={<BlogPagination />} />
             <Route path='/levels' element={<Categories />} />
             <Route path='/levels/:level' element={<LevelPagination />} />
             <Route path="/courses/create" element={<PostCreate />} />
-            <Route path="/about" element={<About />} />
             <Route path="/user/courses" element={<CourseList />} />
             <Route path='/user/me/' element={<Profile/>} />
             <Route path="*" element={<Error code={404} message="Not Found" />} />

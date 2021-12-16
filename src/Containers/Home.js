@@ -15,18 +15,20 @@ const Home = ({ signInhandler }) => {
   };
 
   return (
-    <div className=" home flex flex-col items-center bg-black text-center items-center">
-      <h1 className="font-medium text-4xl">UniAbuja Study Buddy</h1>
-      <div className="border w-80 m-5 font-bold bg-white" />
-      <p className="py-7">
-        something something something about nothing and nothing became somthing
-        we never knew <br />
-        something something something about nothing and nothing became somthing
-        we never knew something something something about nothing
-      </p>
-      <Button1 className="home-btn animate-pulse " onClick={startHandler}>
-        <Link to="/free">START YOUR E-LEARNING </Link>
-      </Button1>
+    <div className="flex h-screen justify-center items-center bg-black text-white text-center">
+      <div className="bg-">
+        <h1 className="font-medium text-4xl">UniAbuja Study Buddy</h1>
+        <div className="border m-5 font-bold bg-white" />
+        <p className="py-7">
+          something something something about nothing and nothing became somthing
+          we never knew <br />
+          something something something about nothing and nothing became somthing
+          we never knew something something something about nothing
+        </p>
+        <Button1 className="home-btn animate-pulse " onClick={startHandler}>
+          <Link to="/courses">START YOUR E-LEARNING </Link>
+        </Button1>
+      </div>
     </div>
   );
 };

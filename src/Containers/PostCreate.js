@@ -1,8 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import * as Yup from "yup";
 import "../Styles/Components/PostCreate.css";
-import { Button3 } from "../Components/button";
-import axios from "axios";
 import { ResourceURL } from "../API/BaseURL";
 import { client } from "../API/requests";
 import { useFormik } from "formik";

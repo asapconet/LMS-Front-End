@@ -1,6 +1,5 @@
 import React from "react";
-import defaultPost from "../assets/postimg.JPG";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { ResourceURL } from "../API/BaseURL";
 import { Loading } from "../Components/Loading";
 import { useLoadItem } from "../utils/useLoadItem";
@@ -13,6 +12,7 @@ export const LevelPagination = () => {
     return (
         <div className="px-16 bg-white py-16">
             <BlogListing posts={state.posts} />
+            {!state.posts && !loading && <h1 className="mx-auto text-black text-center">No posts to load</h1>}
             <div className="flex justify-center">
                 {loading ? (
                     <Loading />

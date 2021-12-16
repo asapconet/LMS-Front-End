@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { VerifyLoginUrl } from "../API/BaseURL";
+import { MeURL, VerifyLoginUrl } from "../API/BaseURL";
 import { client } from "../API/requests";
 
 const AuthContext = React.createContext({
@@ -31,7 +31,7 @@ export const AuthContextProvider = (props) => {
     if (isLoggedIn) {
       const tempClient = {...client};
       tempClient.defaults.headers.common["Authorization"] = `JWT ${localStorage.getItem("access")}`;
-      tempClient.get("/auth/users/me/")
+      tempClient.get(MeURL)
         .then((res) => {
           setUser(res.data)
           localStorage.setItem("user", JSON.stringify(res.data));

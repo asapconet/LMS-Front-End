@@ -1,15 +1,15 @@
-let MotherURL = "https://lms-app-back-end.herokuapp.com/resources/";
-export const BaseURL = "https://lms-app-back-end.herokuapp.com/";
-let BaseURL1 = "https://lms-app-back-end.herokuapp.com/auth/";
-let BaseURL2 = "https://lms-app-back-end.herokuapp.com/auth/users/";
-let BaseURL3 = "https://lms-app-back-end.herokuapp.com/levels";
-let BASEUSER = "https://lms-app-back-end.herokuapp.com/auth/users/me/";
+export const BaseURL = "http://localhost:8000/";
+let MotherURL = `${BaseURL}resources/`;
+let BaseURL1 = `${BaseURL}auth/`
+let BaseURL2 = `${BaseURL}auth/users/`;
+let BASEUSER = `${BaseURL}auth/users/me/`;
 
 // AUTHENTICATION URL
-export const LoginUrl = `${BaseURL1}jwt/create/`;
+export const LoginUrl = `auth/jwt/create/`;
 export const RecoveryURL = `${BaseURL1}jwt/refresh/`;
 export const VerifyLoginUrl = `/jwt/verify/`;
 export const RegistrationUrl = BaseURL2;
+export const MeURL = 'auth/users/me/'
 
 // OTHER URLs
 // "https://lms-app-back-end.herokuapp.com/levels"

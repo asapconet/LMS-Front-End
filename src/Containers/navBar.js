@@ -15,37 +15,54 @@ export const NavBar = () => {
           <FaInfinity className="home-icon1" />
         </Link>
         <span className="mx-4 font-medium">
-          {isLoggedIn && <Link to="/courses">Courses</Link>}
+          {isLoggedIn && <>
+            <Link to="/levels">Levels</Link>
+          <Link to="/courses">Courses</Link>
+          </>}
           <Link to="/about">About Us</Link>
         </span>
       </div>
-      <FaInfinity className="home-icon2" />
+      <Link to="/">
+        <FaInfinity className="home-icon2" />
+      </Link>
       <ul className="flex gap-x-8 font-medium items-center">
-        {isLoggedIn
-          ? <>
+        {isLoggedIn ? (
+          <>
             <li className="">
               <FaUserTie
                 className="text-xl cursor-pointer"
                 onClick={() => setIsOpen(!isOpen)}
               />
-              {isOpen && <ul className="bg-white px-2 py-4 absolute rounded shadow-lg flex flex-col gap-y-4">
-                <li>
-                  <Link to="/user/courses" className="py-2">
-                    My Courses
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/user/profile">My Profile</Link>
-                </li>
-              </ul>
-              }
+              {isOpen && (
+                <ul className="bg-white px-2 py-4 absolute rounded shadow-lg flex flex-col gap-y-4">
+                  <li>
+                    <Link
+                      to="/user/courses"
+                      onClick={() => setIsOpen(false)}
+                      className="py-2"
+                    >
+                      My Courses
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/user/me" onClick={() => setIsOpen(false)}>
+                      My Profile
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
-            <li className="cursor-pointer" onClick={logout}>Log out</li>
+            <li className="cursor-pointer" onClick={logout}>
+              Log out
+            </li>
           </>
-          : <>
-            <li><Link to="/register">Register</Link></li>
-            <li><Link to="/login">Login</Link></li>
-          </>}
+        ) : (
+          <>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );

@@ -1,23 +1,17 @@
-import React, { useState, useRef, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Link, useNavigate } from "react-router-dom";
-import { client, headers } from "../API/requests";
-import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+import { client } from "../API/requests";
+
 
 import {
-  FaUser,
-  FaEnvelope,
-  FaLock,
-  FaTwitter,
-  FaFacebook,
-  FaInstagram,
+  FaUser
 } from "react-icons/fa";
 import "../Styles/Pages/Registration.css";
-import { Button2} from "../Components/button";
-// import { LoginUrl } from "../API/BaseURL";
 import AuthContext from "../Context/AuthContext";
 import { LoginUrl } from "../API/BaseURL";
+import { Loading } from "../Components/Loading";
 
 const schema = Yup.object().shape({
   username: Yup.number().required("Matriculation number is required"),
@@ -26,9 +20,7 @@ const schema = Yup.object().shape({
 
 export default function SignIn() {
   const [errors, setErrors] = useState({});
-  const enteredMatricNumberRef = useRef();
-  const enteredPasswordRef = useRef();
-  const { isLoggedIn, login } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -41,11 +33,12 @@ export default function SignIn() {
       client.post(LoginUrl, values)
         .then((res) => {
           localStorage.setItem("refresh", res.data.refresh);
+          localStorage.setItem("access", res.data.access);
           navigate("/");
         })
         .catch((err) => {
-          setErrors(err.response.data);
-          
+          setErrors(err?.response?.data);
+
         })
         .finally(() => {
           setSubmitting(false);
@@ -61,80 +54,61 @@ export default function SignIn() {
   }, [isLoggedIn, navigate]);
 
 
-  const signinHandler = (event) => {
-    event.preventDefault();
-
-    const enteredMatricNumber = enteredMatricNumberRef.current.value;
-    const enteredPassword = enteredPasswordRef.current.value;
-    console.log(enteredMatricNumber)
-    // return;
-
-    try {
-      login(enteredMatricNumber, enteredPassword);
-
-      // alert(`user logged ${"your token is:" + loggedInUser.refresh}`);
-    } catch (error) {
-      console.log(error || "check credentials, you are not logged in");
-    }
-  };
-  //   .then((data) => {
-  // AuthCtx.loginHandler()
-  //   })
-  //   .catch
-
   return (
-    <div className="signin-container">
-      <div className="signup-student-form">
-        <div className="form-container">
+    <div className="">
+      <div className="">
+        <div className="flex flex-col gap-y-16 items-center">
           <div className=" flex justify-center p-2 form-header">
             <FaUser />
             <h2> Student Login </h2>
           </div>
-
-          {/* PROFILE CREATION ENTRY FORM */}
-
-          <form className="p-5" onSubmit={formik.handleSubmit} className="flex flex-col">
-            {errors.detail && (<p className="text-red-500 text-center">{errors.detail}</p>)}
-            <div>
-              <div className=" flex items-center form-control">
-                <label htmlFor="matricNumber"></label>
-                <FaEnvelope />
-                <input
-                  id="username"
-                  {...formik.getFieldProps("username")}
+          <form onSubmit={formik.handleSubmit} className="flex p-5 flex-col shadow-lg">
+            {errors.detail && (
+              <p className="text-red-500 text-center">{errors.detail}</p>
+            )}
+            <div className="flex flex-col gap-y-8">
+              <div>
+                <div className="grid grid-cols-2 gap-x-4 gap-y-2 items-center">
+                  <label htmlFor="matricNumber">Matric Number</label>
+                  <input className="border-2 border-black rounded-lg py-2 px-4" id="username" {...formik.getFieldProps("username")} />
+                  {formik.touched.username && formik.errors.username ? (
+                    <p className="text-red-500 col-start-2 text-center">
+                      {formik.errors.username}
+                    </p>
+                  ) : null}
+                  {errors.username && (
+                    <p className="text-red-500 col-start-2 text-center">{errors.username}</p>
+                  )}
+                </div>
+              </div>
+              <div>
+                <div className="grid grid-cols-2 gap-x-4 items-center">
+                  <label htmlFor="password">Password</label>
+                  <input
+                    id="password"
+                    type="password"
+                    className="border-2 border-black rounded-lg py-2 px-4"
+                    {...formik.getFieldProps("password")}
                   />
+                </div>
+                {formik.touched.password && formik.errors.password ? (
+                  <p className="text-red-500 text-xs italic">
+                    {formik.errors.password}
+                  </p>
+                ) : null}
+                {errors.password && (
+                  <p className="text-red-500 text-xs italic">{errors.password}</p>
+                )}
               </div>
-              {formik.touched.username && formik.errors.username ? (<p className="text-red-500 text-xs italic">{formik.errors.username}</p>) : null}
-              {errors.username && (<p className="text-red-500 text-xs italic">{errors.username}</p>)}
             </div>
-            <div>
-              <div className="flex items-center form-control">
-                <label htmlFor="password"></label>
-                <FaLock />
-                <input
-                  id="password"
-                  type="password"
-                  {...formik.getFieldProps("password")}
-                />
-              </div>
-              {formik.touched.password && formik.errors.password ? (<p className="text-red-500 text-xs italic">{formik.errors.password}</p>) : null}
-              {errors.password && (<p className="text-red-500 text-xs italic">{errors.password}</p>)}
-            </div>
-            {formik.isSubmitting && <p>Logging in user...</p>}
-            <input type="submit" value="Login" className="border-0 bg-black rounded-lg w-full px-8 py-2 my-8" />
-            
-          </form>
-          <div className="text-center">
-              <span className="flex justify-center py-8 border-t ">
-                <FaInstagram className="mx-2" />
-                <FaTwitter className="mx-2" />
-                <FaFacebook className="mx-2" />
-              </span>
+            {formik.isSubmitting && <Loading />}
+            <input
+              type="submit"
+              value="Login"
+              className="border-0 bg-black text-white rounded-lg w-full px-8 py-2 my-8"
+            />
 
-              <Link to="/register">
-                <Button2 className=" w-full">NO ACCOUNT? SIGNUP</Button2>
-              </Link>
-            </div>
+          </form>
         </div>
       </div>
       {/* <Footer /> */}

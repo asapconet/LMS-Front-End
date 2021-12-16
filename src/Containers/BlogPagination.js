@@ -6,13 +6,12 @@ import { Loading } from "../Components/Loading";
 import { useLoadItem } from "../utils/useLoadItem";
 
 
-const BlogItem = ({ posted_by, level, uuid, created, last_updated, cover, title, content, description, slug }) => {
-  const created_date = new Date(created).toDateString();
+export const BlogItem = ({ posted_by, level, uuid, last_updated, cover, title, description, slug }) => {
   const last_updated_date = new Date(last_updated).toDateString();
 
   return (
-    <Link to={`/courses/${slug}/${uuid}`} className="relative bg-white shadow-lg rounded">
-      <img src={cover && defaultPost} alt="" className="w-full h-64 object-cover rounded" />
+    <Link to={`/courses/${slug}/${uuid}`} className="relative bg-white shadow-lg rounded px-0 pt-0 pb-4">
+      <img src={cover || defaultPost} alt="" className="w-full h-64 object-cover rounded" />
       <span className="absolute top-4 left-4 px-4 py-1 bg-blue-500 text-white text-xs font-bold">{level}</span>
       <div className="flex justify-between text-gray-400 my-2">
         <p className="text-sm">Posted by: {posted_by}</p>
@@ -24,9 +23,9 @@ const BlogItem = ({ posted_by, level, uuid, created, last_updated, cover, title,
   );
 }
 
-const BlogListing = ({ posts }) => {
+export const BlogListing = ({ posts }) => {
   return (
-    posts 
+    posts
       ? <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {posts.map((post) => (
           <BlogItem
@@ -34,8 +33,8 @@ const BlogListing = ({ posts }) => {
             {...post}
           />
         ))}
-    </div>
-    : <h1 className="mx-auto text-center">No posts to load</h1>
+      </div>
+      : <h1 className="mx-auto text-black text-center">No posts to load</h1>
   );
 }
 
@@ -49,9 +48,9 @@ const BlogPagination = () => {
         {loading
           ? <Loading />
           : <>{state.next && <button
-              onClick={refetch}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
+            onClick={refetch}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
             Load More
           </button>}</>}
       </div>

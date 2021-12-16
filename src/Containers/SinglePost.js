@@ -1,27 +1,19 @@
-import React, { useState, useEffect,useCallback} from "react";
-import axios from "axios";
+import React, { useState, useEffect, useCallback } from "react";
 import Button1 from "../Components/button";
 import { FaDownload } from "react-icons/fa";
-import lebron from "../assets/lebron.JPG";
-import post from "../data";
-import AboutCard from "../Components/AboutCard";
-import CommentCard from "../Components/CommentCard";
-import Comment from "../Components/Comment";
-import { NavBar } from "./navBar";
+import defaultPost from "../assets/postimg.JPG";
 import { Link, useParams } from "react-router-dom";
 import Footer from "./Footer";
-import { BaseURL } from "../API/BaseURL";
 import { client } from "../API/requests";
+import { ResourceURL } from "../API/BaseURL";
 
 const SinglePost = () => {
   const { uuid } = useParams()
   const [data, setData] = useState({})
-  const [otherArticles, setOtherArticles] = useState({})
-  let url = `resources/${uuid}/`
+  const [otherArticles, setOtherArticles] = useState([])
 
-  console.log(url)
   const getSinglePostData = useCallback(() => {
-    client.get(url, {
+    client.get(`${ResourceURL}${uuid}`, {
       params: {
         uuid: uuid
       }
@@ -30,62 +22,52 @@ const SinglePost = () => {
         setData(res.data)
       })
       .catch()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [url, uuid])
-  let url1 = `resources/`
+  }, [uuid])
+
   const getFeaturedPost = useCallback(() => {
-    client.get(url, {
+    client.get(`${ResourceURL}?level=${data.level}`, {
       params: {
         uuid: uuid
       }
     })
       .then(res => {
-        setFe(res.data)
+        setOtherArticles([
+          ...res.data.results
+        ])
       })
       .catch()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [url, uuid])
+  }, [data, uuid])
+
   useEffect(() => {
     getSinglePostData()
-    getFeaturedPost()
-  }, [getFeaturedPost, getSinglePostData])
- 
+  }, [getSinglePostData])
+
+  useEffect(() => {
+    data && getFeaturedPost()
+  }, [data, getFeaturedPost])
+
   console.log(data)
   return (
     <>
-      <section className=" post1 flex ">
-        <div className=" text-center text-white ">
-          <div>
-            <div className=" mb-4 post-container flex justify-center flex-col">
-              <div className="">
-                <img src={data.content} alt={"pic of course"} />
-              </div>
-              <div className="image-card bg-black flex shadow justify-center flex-col p-9 mt-4">
-                <div>
-                  <h1>{`${data.title} Material`}</h1>
-                  <p>
-                    {data.description}.
-                  </p>
-                  <Button1>
-                    <a
-                      href={data.content}
-                      download={data.title}
-                      className=" btn-d flex animate-pulse items-center"
-                    >
-                      DOWNLOAD MATERAILS FREE
-                      <FaDownload className="ml-2" />
-                    </a>
-                  </Button1>
-                </div>
-              </div>
-              <AboutCard />
-              <CommentCard />
-              <Comment />
-              <div></div>
-            </div>
+      <section className="px-32 grid grid-cols-6 gap-x-8">
+        <div className="col-span-4 mb-4 flex flex-col">
+          <img src={data.cover || defaultPost} alt={"pic of course"} />
+          <div className="bg-black text-white flex shadow gap-y-8 flex-col p-9 mt-4">
+              <h1 className="text-center">{`${data.title} Material`}</h1>
+              <p className="leading-loose">{data.description}</p>
+              <a
+                href={data.content}
+                download={data.title}
+                className="flex gap-x-2 justify-center items-center border text-center border-white animate-pulse"
+              >
+                <span>Download Course Content</span>
+                <FaDownload />
+              </a>
+
           </div>
+          <div></div>
         </div>
-        <div className="side-sec text-center  text-white w-full capitalize">
+        <div className="col-span-2 side-sec text-center  text-white w-full capitalize">
           <div className="rounded bg-black ">
             <h1 className="font-bold text-3xl p-4">
               learn all your CSC cources with us
@@ -99,19 +81,19 @@ const SinglePost = () => {
               <Button1 className="my-4">SELECT LEVEL MATERIAL</Button1>
             </Link>
           </div>
-          <div className="bg-white text-left rounded p-1 text-black my-4">
+          <div className="bg-white text-left rounded px-4 text-black my-4 shadow-lg">
             <div className="border-b">
               <h3 className="font-medium py-1">Related Articles</h3>
             </div>
-            {post.map((e) => {
-              const { id, image, name, desc } = e;
+            {otherArticles && otherArticles.map((course) => {
               return (
-                <div key={id} className="flex p-1 text-xs font-medium post-img">
-                  <img src={image} alt={name} />
-                  <span>
-                    {desc}
-                    <p className="text-right font-bold">by {name}</p>
-                  </span>
+                <div key={course.uuid} className="flex gap-x-4">
+                  <div className="flex flex-col justify-start">
+                    <Link 
+                      to={`/courses/${course.slug}/${course.uuid}/`}
+                    >
+                      {course.title}</Link>
+                  </div>
                 </div>
               );
             })}

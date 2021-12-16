@@ -26,7 +26,7 @@ const Courses = ({ posted_by, level, uuid, created, last_updated, cover, title, 
         <p>{title}</p>
       </div>
       <div className="">
-        <Link to={``} className="course-button bg-gray-600 hover:bg-gray-700 text-white text-lg p-2 m-1 border rounded">
+        <Link to={`/courses/${slug}/${uuid}`} className="course-button bg-gray-600 hover:bg-gray-700 text-white text-lg p-2 m-1 border rounded">
           View
         </Link>
       </div>

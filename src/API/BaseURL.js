@@ -12,7 +12,8 @@ export const VerifyLoginUrl = `/jwt/verify/`;
 export const RegistrationUrl = BaseURL2;
 
 // OTHER URLs
-export const LevelUrl = BaseURL3;
+// "https://lms-app-back-end.herokuapp.com/levels"
+export const LevelUrl = 'levels';
 export const ResourceURL = MotherURL;
 export const GetMyCoursesURL = MotherURL;
 

@@ -15,7 +15,10 @@ export const NavBar = () => {
           <FaInfinity className="home-icon1" />
         </Link>
         <span className="mx-4 font-medium">
-          {isLoggedIn && <Link to="/courses">Courses</Link>}
+          {isLoggedIn && <>
+            <Link to="/levels">Levels</Link>
+          <Link to="/courses">Courses</Link>
+          </>}
           <Link to="/about">About Us</Link>
         </span>
       </div>
@@ -28,7 +31,7 @@ export const NavBar = () => {
             <li className="">
               <FaUserTie
                 className="text-xl cursor-pointer"
-                onMouseOutCapture={() => setIsOpen(!isOpen)}
+                onClick={() => setIsOpen(!isOpen)}
               />
               {isOpen && (
                 <ul className="bg-white px-2 py-4 absolute rounded shadow-lg flex flex-col gap-y-4">

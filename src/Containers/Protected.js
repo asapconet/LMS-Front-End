@@ -6,6 +6,7 @@ import Blog from "./Blog";
 import BlogPagination from "./BlogPagination";
 import { Categories } from "./Categories";
 import CourseList from "./CourseList";
+import { LevelPagination } from "./LevelsCourses";
 import { Error } from "./NotFound";
 import PostCreate from "./PostCreate";
 import { Profile } from "./Profile";
@@ -26,6 +27,7 @@ export const ProtectedRoute = () => {
             <Route path="/courses/:slug/:uuid" element={<SinglePost />} />
             <Route path="/free" element={<BlogPagination />} />
             <Route path='/levels' element={<Categories />} />
+            <Route path='/levels/:level' element={<LevelPagination />} />
             <Route path="/courses/create" element={<PostCreate />} />
             <Route path="/about" element={<About />} />
             <Route path="/user/courses" element={<CourseList />} />

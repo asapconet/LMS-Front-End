@@ -1,4 +1,4 @@
-export const BaseURL = "http://localhost:8000/";
+export const BaseURL = process.env.REACT_APP_BACK_END_URL;
 let MotherURL = `${BaseURL}resources/`;
 let BaseURL1 = `${BaseURL}auth/`
 let BaseURL2 = `${BaseURL}auth/users/`;

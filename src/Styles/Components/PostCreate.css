@@ -37,7 +37,7 @@ input[type="file"] {
 .post-form-control input,
 .post-form-control textarea {
   width: 100%;
-  border: 2px solid gray;
+  /* border: 2px solid gray; */
   border-radius: 5px;
 }
 

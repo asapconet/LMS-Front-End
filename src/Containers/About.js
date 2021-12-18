@@ -5,7 +5,7 @@ import { about } from "../data";
 export const About = () => {
   return (
     <div>
-      <article className="px-4 md:px-16 lg:px-32">
+      <article className="px-4 md:px-16 lg:px-32 text-green-600">
         <h1 className="font-bold text-3xl text-center my-9">
           This site was created for student use with love from...
         </h1>

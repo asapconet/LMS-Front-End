@@ -15,7 +15,7 @@ const Home = ({ signInhandler }) => {
   };
 
   return (
-    <div className="flex h-screen justify-center items-center bg-black text-white text-center">
+    <div className="flex h-screen justify-center items-center bg-green-600 text-white text-center">
       <div className="bg-">
         <h1 className="font-medium text-4xl">UniAbuja Study Buddy</h1>
         <div className="border m-5 font-bold bg-white" />

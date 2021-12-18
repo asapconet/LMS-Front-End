@@ -10,15 +10,14 @@ export const BlogItem = ({ posted_by, level, uuid, last_updated, cover, title, d
   const last_updated_date = new Date(last_updated).toDateString();
 
   return (
-    <Link to={`/courses/${slug}/${uuid}`} className="relative bg-white shadow-lg rounded px-0 pt-0 pb-4">
+    <Link to={`/courses/${slug}/${uuid}`} className="relative bg-white shadow-lg rounded px-0 pt-0 pb-4 text-green-600">
       <img src={cover || defaultPost} alt="" className="w-full h-64 object-cover rounded" />
-      <span className="absolute top-4 left-4 px-4 py-1 bg-blue-500 text-white text-xs font-bold">{level}</span>
-      <div className="flex justify-between text-gray-400 my-2">
+      <span className={`absolute top-4 left-4 px-4 py-1 bg-green-${level} text-white text-xs font-bold`}>{level}</span>
+      <div className="flex justify-between text-gray-400 my-2 px-4">
         <p className="text-sm">Posted by: {posted_by}</p>
         <p className="text-sm">Updated: {last_updated_date}</p>
       </div>
-      <h1 className="text-2xl font-bold">{title}</h1>
-      <p className="text-sm">{description.slice(0, 100)}...</p>
+      <h1 className="text-2xl font-bold px-4">{title}</h1>
     </Link>
   );
 }
@@ -26,7 +25,7 @@ export const BlogItem = ({ posted_by, level, uuid, last_updated, cover, title, d
 export const BlogListing = ({ posts }) => {
   return (
     posts
-      ? <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      ? <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {posts.map((post) => (
           <BlogItem
             key={post.uuid}

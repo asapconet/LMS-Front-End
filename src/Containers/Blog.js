@@ -7,7 +7,7 @@ import { FaAngleDoubleDown } from "react-icons/fa";
 const Blog = () => {
   return (
     <>
-      <div className="flex flex-col h-screen bg-black justify-center items-center text-white text-center">
+      <div className="flex flex-col h-screen bg-green-600 justify-center items-center text-white text-center">
         <div>
           <h1 className="capitalize font-bold">
             learn all your computer science courses with courseLab

@@ -87,23 +87,23 @@ const PostCreate = () => {
   return (
     <section className="flex justify-center">
       <div className="post-container sm:w-full p-3">
-        <div className="post-form ">
-          <div className="post-header mb-3">
+        <div className="post-form flex flex-col gap-y-8">
+          <div className=" mb-3 text-4xl text-green-600">
             <h2>Upload Materials For Your CourseBuddy</h2>
             {requestSuccess && (
-              <div className="text-green-500 text-center">
+              <div className="text-green-600 text-center">
                 Successful
-                </div>
-                )}
+              </div>
+            )}
           </div>
-          <div className="post-main-form p-2">
+          <div className="post-main-form p-2 shadow-lg border border-green-600 rounded-lg">
             <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
               <div className="post-form-control">
-                <label htmlFor="posted_by">Name or Mat Number</label>
                 <input
                   id="posted_by"
                   type="text"
                   hidden
+                  className="border-2 border-green-600 rounded-lg py-2 px-4"
                   value={user.username}
                   {...formik.getFieldProps("posted_by")}
                 />
@@ -119,6 +119,7 @@ const PostCreate = () => {
               <div className="post-form-control">
                 <label htmlFor="title">Course Title</label>
                 <input
+                  className="border-2 border-green-600 rounded-lg py-2 px-4"
                   id="title"
                   type="text"
                   {...formik.getFieldProps("title")}
@@ -137,6 +138,7 @@ const PostCreate = () => {
                   id="cover"
                   placeholder="Choose File"
                   type="file"
+                  className="border-2 border-green-600 rounded-lg py-2 px-4"
                   accept="image/*"
                   {...formik.getFieldProps("cover")}
                   onChange={(e) => handleFileChange(e, "cover")}
@@ -156,6 +158,7 @@ const PostCreate = () => {
                   id="content"
                   placeholder="Choose File"
                   type="file"
+                  className="appearance-none border-2 border-green-600 rounded-lg py-2 px-4"
                   {...formik.getFieldProps("content")}
                   onChange={(e) => handleFileChange(e, "content")}
                 />
@@ -168,10 +171,10 @@ const PostCreate = () => {
                 {errors.content && (<p className="text-red-500 text-xs italic">{errors.content}</p>)}
               </div>
 
-              <div className="post-form-control">
+              <div className="post-form-control flex flex-col">
                 <label htmlFor="level">Choose Levels</label>
                 <select
-                  className="bg-gray-200 m-2 p-1"
+                  className="appearance-none bg-white border-2 border-green-600 rounded-lg py-2 px-4"
                   id="level"
                   type="number"
                   {...formik.getFieldProps("level")}
@@ -198,6 +201,7 @@ const PostCreate = () => {
                   rows="8"
                   cols="18"
                   placeholder="Description"
+                  className="border-2 border-green-600 rounded-lg py-2 px-4"
                   id="description"
                   {...formik.getFieldProps("description")}
                 ></textarea>
@@ -210,7 +214,7 @@ const PostCreate = () => {
                 {errors.description && (<p className="text-red-500 text-xs italic">{errors.description}</p>)}
               </div>
 
-              <input className="w-full border-o bg-black rounded-lg py-2 px-8 text-white" type="submit" value="Submit" />
+              <input className="w-full cursor-pointer bg-green-600 hover:bg-white hover:text-green-600 border-2 border-green-600 rounded-lg py-2 px-8 shadow text-white text-center" type="submit" value="Submit" />
             </form>
           </div>
         </div>

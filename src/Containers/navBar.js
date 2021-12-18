@@ -9,7 +9,7 @@ export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="relative">
+    <nav className="relative text-green-600">
       <div className="flex items-center">
         <Link to="/">
           <FaInfinity className="home-icon1" />

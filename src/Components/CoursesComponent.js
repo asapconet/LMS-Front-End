@@ -21,19 +21,19 @@ const Courses = ({ posted_by, level, uuid, created, last_updated, cover, title, 
       })
   };
   return (
-    <div className="course-item grid grid-cols-4 justify-between bg-black text-white rounded m-2">
+    <div className="w-full course-item grid grid-cols-4 justify-between bg-green-600 text-white rounded m-2">
       <div className="font-bold text-lg p-2 m-1 uppercase">
         <p>{title}</p>
       </div>
       <div className="">
-        <Link to={`/courses/${slug}/${uuid}`} className="course-button bg-gray-600 hover:bg-gray-700 text-white text-lg p-2 m-1 border rounded">
+        <Link to={`/courses/${slug}/${uuid}`} className="course-button bg-white hover:bg-green-700 text-green-600 hover:text-white text-lg p-2 m-1 border rounded">
           View
         </Link>
       </div>
       <div>
         <button
           onClick={handleDelete}
-          className="course-button bg-gray-600 hover:bg-red-gray text-white text-lg p-2 my-1 border rounded">
+          className="bg-white hover:bg-green-700 text-green-600 hover:text-white text-lg p-2 m-1">
           Delete
         </button>
       </div>

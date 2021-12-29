@@ -17,7 +17,7 @@ const Home = ({ signInhandler }) => {
   return (
     <div className="flex h-screen justify-center items-center bg-black text-white text-center">
       <div className="bg-">
-        <h1 className="font-medium text-4xl">UniAbuja Study Buddy</h1>
+        <h1 className="font-medium text-4xl">My University Study Buddy</h1>
         <div className="border m-5 font-bold bg-white" />
         <p className="py-7">
           something something something about nothing and nothing became somthing

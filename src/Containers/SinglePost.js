@@ -8,62 +8,61 @@ import { client } from "../API/requests";
 import { ResourceURL } from "../API/BaseURL";
 
 const SinglePost = () => {
-  const { uuid } = useParams()
-  const [data, setData] = useState({})
-  const [otherArticles, setOtherArticles] = useState([])
+  const { uuid } = useParams();
+  const [data, setData] = useState({});
+  const [otherArticles, setOtherArticles] = useState([]);
 
   const getSinglePostData = useCallback(() => {
-    client.get(`${ResourceURL}${uuid}`, {
-      params: {
-        uuid: uuid
-      }
-    })
-      .then(res => {
-        setData(res.data)
+    client
+      .get(`${ResourceURL}${uuid}`, {
+        params: {
+          uuid: uuid,
+        },
       })
-      .catch()
-  }, [uuid])
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch();
+  }, [uuid]);
 
   const getFeaturedPost = useCallback(() => {
-    client.get(`${ResourceURL}?level=${data.level}`, {
-      params: {
-        uuid: uuid
-      }
-    })
-      .then(res => {
-        setOtherArticles([
-          ...res.data.results
-        ])
+    client
+      .get(`${ResourceURL}?level=${data.level}`, {
+        params: {
+          uuid: uuid,
+        },
       })
-      .catch()
-  }, [data, uuid])
+      .then((res) => {
+        setOtherArticles([...res.data.results]);
+      })
+      .catch();
+  }, [data, uuid]);
 
   useEffect(() => {
-    getSinglePostData()
-  }, [getSinglePostData])
+    getSinglePostData();
+  }, [getSinglePostData]);
 
   useEffect(() => {
-    data && getFeaturedPost()
-  }, [data, getFeaturedPost])
+    data && getFeaturedPost();
+  }, [data, getFeaturedPost]);
 
-  console.log(data)
+  console.log(data);
   return (
     <>
-      <section className="px-32 grid grid-cols-6 gap-x-8">
+      <section className="px-32 grid grid-cols-6 gap-x-8 ">
         <div className="col-span-4 mb-4 flex flex-col">
           <img src={data.cover || defaultPost} alt={"pic of course"} />
           <div className="bg-black text-white flex shadow gap-y-8 flex-col p-9 mt-4">
-              <h1 className="text-center">{`${data.title} Material`}</h1>
-              <p className="leading-loose">{data.description}</p>
-              <a
-                href={data.content}
-                download={data.title}
-                className="flex gap-x-2 justify-center items-center border text-center border-white animate-pulse"
-              >
-                <span>Download Course Content</span>
-                <FaDownload />
-              </a>
-
+            <h1 className="text-center">{`${data.title} Material`}</h1>
+            <p className="leading-loose">{data.description}</p>
+            <a
+              href={data.content}
+              download={data.title}
+              className="flex gap-x-2 justify-center items-center border text-center border-white animate-pulse"
+            >
+              <span>Download Course Content</span>
+              <FaDownload />
+            </a>
           </div>
           <div></div>
         </div>
@@ -85,22 +84,24 @@ const SinglePost = () => {
             <div className="border-b">
               <h3 className="font-medium py-1">Related Articles</h3>
             </div>
-            {otherArticles && otherArticles.map((course) => {
-              return (
-                <div key={course.uuid} className="flex gap-x-4">
-                  <div className="flex flex-col justify-start">
-                    <Link 
-                      to={`/courses/${course.slug}/${course.uuid}/`}
-                    >
-                      {course.title}</Link>
+            {otherArticles &&
+              otherArticles.map((course) => {
+                return (
+                  <div key={course.uuid} className="flex gap-x-4">
+                    <div className="flex flex-col justify-start">
+                      <Link to={`/courses/${course.slug}/${course.uuid}/`}>
+                        {course.title}
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         </div>
       </section>
-      <Footer />
+      <div className="">
+        <Footer />
+      </div>
     </>
   );
 };

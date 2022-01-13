@@ -20,10 +20,7 @@ const Home = ({ signInhandler }) => {
         <h1 className="font-medium text-4xl">UniAbuja Study Buddy</h1>
         <div className="border m-5 font-bold bg-white" />
         <p className="py-7">
-          something something something about nothing and nothing became somthing
-          we never knew <br />
-          something something something about nothing and nothing became somthing
-          we never knew something something something about nothing
+        A friendly course learning material's archive for computer science department
         </p>
         <Button1 className="home-btn animate-pulse " onClick={startHandler}>
           <Link to="/courses">START YOUR E-LEARNING </Link>

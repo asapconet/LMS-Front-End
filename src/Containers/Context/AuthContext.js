@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { MeURL, VerifyLoginUrl } from "../API/BaseURL";
-import { client } from "../API/requests";
+import { MeURL, VerifyLoginUrl } from "../../API/BaseURL";
+import { client } from "../../API/requests";
 
 const AuthContext = React.createContext({
   isLoggedIn: "",

@@ -4,10 +4,7 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { client } from "../API/requests";
 
-
-import {
-  FaUser
-} from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import "../Styles/Pages/Registration.css";
 import AuthContext from "../Context/AuthContext";
 import { LoginUrl } from "../API/BaseURL";
@@ -15,7 +12,7 @@ import { Loading } from "../Components/Loading";
 
 const schema = Yup.object().shape({
   username: Yup.number().required("Matriculation number is required"),
-  password: Yup.string()
+  password: Yup.string(),
 });
 
 export default function SignIn() {
@@ -30,7 +27,8 @@ export default function SignIn() {
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
       setErrors({});
-      client.post(LoginUrl, values)
+      client
+        .post(LoginUrl, values)
         .then((res) => {
           localStorage.setItem("refresh", res.data.refresh);
           localStorage.setItem("access", res.data.access);
@@ -38,21 +36,17 @@ export default function SignIn() {
         })
         .catch((err) => {
           setErrors(err?.response?.data);
-
         })
         .finally(() => {
           setSubmitting(false);
         });
-
-
     },
     validationSchema: schema,
-  })
+  });
 
   useEffect(() => {
     isLoggedIn && navigate("/");
   }, [isLoggedIn, navigate]);
-
 
   return (
     <div className="">
@@ -62,7 +56,10 @@ export default function SignIn() {
             <FaUser />
             <h2> Student Login </h2>
           </div>
-          <form onSubmit={formik.handleSubmit} className="flex p-5 flex-col shadow-lg">
+          <form
+            onSubmit={formik.handleSubmit}
+            className="flex p-5 flex-col shadow-lg"
+          >
             {errors.detail && (
               <p className="text-red-500 text-center">{errors.detail}</p>
             )}
@@ -70,14 +67,20 @@ export default function SignIn() {
               <div>
                 <div className="grid grid-cols-2 gap-x-4 gap-y-2 items-center">
                   <label htmlFor="matricNumber">Matric Number</label>
-                  <input className="border-2 border-black rounded-lg py-2 px-4" id="username" {...formik.getFieldProps("username")} />
+                  <input
+                    className="border-2 border-black rounded-lg py-2 px-4"
+                    id="username"
+                    {...formik.getFieldProps("username")}
+                  />
                   {formik.touched.username && formik.errors.username ? (
                     <p className="text-red-500 col-start-2 text-center">
                       {formik.errors.username}
                     </p>
                   ) : null}
                   {errors.username && (
-                    <p className="text-red-500 col-start-2 text-center">{errors.username}</p>
+                    <p className="text-red-500 col-start-2 text-center">
+                      {errors.username}
+                    </p>
                   )}
                 </div>
               </div>
@@ -97,7 +100,9 @@ export default function SignIn() {
                   </p>
                 ) : null}
                 {errors.password && (
-                  <p className="text-red-500 text-xs italic">{errors.password}</p>
+                  <p className="text-red-500 text-xs italic">
+                    {errors.password}
+                  </p>
                 )}
               </div>
             </div>
@@ -107,7 +112,6 @@ export default function SignIn() {
               value="Login"
               className="border-0 bg-black text-white rounded-lg w-full px-8 py-2 my-8"
             />
-
           </form>
         </div>
       </div>
